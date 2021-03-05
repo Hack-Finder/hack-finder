@@ -5,6 +5,7 @@ const userSchema = new Schema({
     type: String,
     unique: true,
     trim: true,
+    required: [true, 'Please choose a username'],
   },
   email: {
     type: String,
@@ -20,7 +21,6 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: [true, 'Please enter a password'],
-    select: false,
   },
   image: {
     imgName: String,

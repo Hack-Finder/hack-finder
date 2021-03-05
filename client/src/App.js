@@ -1,16 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
-import Home from './components/Home';
+import React from 'react';
+import Signup from './Components/Signup';
+import Login from './Components/Login';
+import { Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={Home} />
-      </Switch>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    user: this.props.user,
+  };
+
+  setUser = (user) => {
+    this.setState({
+      user: user,
+    });
+  };
+
+  render() {
+    return (
+      <>
+        <Route exact path="/login" render={(props) => <Login setUser={this.setUser} {...props} />} />
+        <Route exact path="/signup" render={(props) => <Signup setUser={this.setUser} {...props} />} />
+      </>
+    );
+  }
 }
 
 export default App;
