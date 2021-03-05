@@ -1,5 +1,14 @@
+const Event = require('../models/Event')
+
 exports.getAllEvents = (req, res, next) => {
-  res.json({ feedback: 'getAllEvents' });
+  Event.find()
+  .then(events => {
+    res.json(events)
+  })
+  .catch(err => {
+    next(err)
+  })
+  // res.json({ feedback: 'getAllEvents' });
 };
 
 exports.getEventDetails = (req, res, next) => {
