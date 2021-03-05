@@ -6,6 +6,7 @@ class Signup extends React.Component {
     username: '',
     email: '',
     password: '',
+    message: '',
   };
 
   onChangeHandler = (ev) => {
@@ -16,7 +17,19 @@ class Signup extends React.Component {
 
   onSubmitHandler = (ev) => {
     ev.preventDefault();
-    signup(this.state);
+    signup(this.state.username, this.state.email, this.state.password).then((user) => {
+      if (user.message) {
+        this.setState({
+          message: user.message,
+          username: '',
+          email: '',
+          password: '',
+        });
+      } else {
+        this.props.setUser(user);
+        this.props.history.push('/login');
+      }
+    });
   };
 
   render() {
@@ -133,6 +146,7 @@ class Signup extends React.Component {
                 Sign in
               </button>
             </div>
+            {this.state.message && <h3>{this.state.message}</h3>}
           </form>
         </div>
       </div>

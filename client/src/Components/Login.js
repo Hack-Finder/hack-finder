@@ -5,6 +5,7 @@ class Login extends React.Component {
   state = {
     username: '',
     password: '',
+    message: '',
   };
 
   onChangeHandler = (ev) => {
@@ -15,7 +16,18 @@ class Login extends React.Component {
 
   onSubmitHandler = (ev) => {
     ev.preventDefault();
-    login(this.state.username, this.state.password);
+    login(this.state.username, this.state.password).then((user) => {
+      if (user.message) {
+        this.setState({
+          message: user.message,
+          username: '',
+          password: '',
+        });
+      } else {
+        this.props.setUser(user);
+        this.props.history.push('/profile');
+      }
+    });
   };
 
   render() {
@@ -23,6 +35,7 @@ class Login extends React.Component {
       <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
+            {this.state.user && <h3>IAM LOGGED IN</h3>}
             {/* <img
             className="mx-auto h-12 w-auto"
             src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
@@ -41,19 +54,19 @@ class Login extends React.Component {
 
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
-                <label htmlFor="email-address" className="sr-only">
-                  Email address
+                <label htmlFor="username" className="sr-only">
+                  Username
                 </label>
                 <input
-                  value={this.state.email}
+                  value={this.state.username}
                   onChange={this.onChangeHandler}
-                  id="email-address"
+                  id="username"
                   name="username"
                   type="text"
                   autoComplete="email"
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Email address"
+                  placeholder="Username"
                 ></input>
               </div>
               <div>
@@ -116,6 +129,7 @@ class Login extends React.Component {
                 Login
               </button>
             </div>
+            {this.state.message && <h3>{this.state.message}</h3>}
           </form>
         </div>
       </div>
