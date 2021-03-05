@@ -6,8 +6,10 @@ export default function Home() {
   return (
     <div>
       <NavBar />
-      <h1>Welcome to Startup Calendar!</h1>
-      <FilteredEventsList />
+      <div className="container mx-auto p-6">
+        <h1 className="font-bold text-3xl">Find the best startup events to pitch your startup, win great prices & more.</h1>
+        <FilteredEventsList />
+      </div>
     </div>
   )
 }

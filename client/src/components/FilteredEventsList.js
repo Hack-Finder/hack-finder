@@ -13,17 +13,39 @@ export default class FilteredEventsList extends React.Component {
       this.setState({ events: events })
     });
   }
-  
+
   render() {
-    
+
     console.log(this.state.events)
+
+    if (this.state.events === null) return (<h3>Loading...</h3>)
 
     return (
       <div>
-        {this.state.events === null && <h2>Loading Events Calendar</h2>}
-        <h1>Filtered Events List Here!</h1>
-        <EventItem />
+        {this.state.events.map(event => {
+          return (
+            <div>
+              {/* <h1>{event.title}</h1>
+              <h1>{event.description}</h1> */}
+              <EventItem event = {event}/>
+            </div>
+          )
+        })}
       </div>
+
     )
+
   }
 }
+
+
+
+{/* this.state.events.map(event => {
+  return (
+    <div>
+      <h3>{event.title}</h3>
+    </div>
+  )
+})
+        } */}
+
