@@ -16,8 +16,6 @@ export default class FilteredEventsList extends React.Component {
 
   render() {
 
-    console.log(this.state.events)
-
     if (this.state.events === null) return (<h3>Loading...</h3>)
 
     return (

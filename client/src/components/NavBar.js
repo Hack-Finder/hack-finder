@@ -4,10 +4,27 @@ import { Link } from 'react-router-dom';
 export default class NavBar extends React.Component {
 
   state = {
-    loggedIn: false
+    user: null,
+    showModal: false
+  }
+
+  componentDidMount() {
+    if (this.props.user) {
+      this.setState({
+        user: this.props.user
+      })
+    }
+  }
+
+  showModal = () => {
+    this.setState({
+      showModal: !this.state.showModal
+    })
   }
 
   render() {
+
+    console.log('show modal:', this.state.showModal)
 
     return (
       <nav className="bg-gray-800">
@@ -33,6 +50,8 @@ export default class NavBar extends React.Component {
 
             Menu open: "block", Menu closed: "hidden"
           --> */}
+
+          
                 <svg className="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -50,7 +69,7 @@ export default class NavBar extends React.Component {
 
 
             {/* When a user is logged in */}
-            {this.state.loggedIn &&
+            {this.state.user != null &&
               <div id="right-container" className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   {/* <!-- Heroicon name: solid/check --> */}
@@ -60,10 +79,9 @@ export default class NavBar extends React.Component {
                   Event
                 </button>
 
-
                 <div className="ml-3 relative">
                   <div>
-                    <button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+                    <button onClick={this.showModal} className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
                       <span className="sr-only">Open user menu</span>
                       <img className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                     </button>
@@ -73,14 +91,24 @@ export default class NavBar extends React.Component {
               </div>
             }
 
+            {this.state.showModal &&
+            <div className="origin-top-right absolute right-0 mt-60 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+              <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+              <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+              <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+            </div>
+            }
+
+
+
             {/* When a user is not logged in */}
-            {!this.state.loggedIn &&
+            {this.state.user === null &&
               <div id="right-container" className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Log in</a>
-                    <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign up</a>
+                    <Link to="/login" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Log in</Link>
+                    <Link to="/signup" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign up</Link>
                   </div>
                 </div>
               </div>
