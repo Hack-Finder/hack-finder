@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Basic } from './Dropzone';
 import { sendFormData } from '../services/sendFormData';
 
 export default class CreateEvent extends Component {
@@ -24,10 +23,18 @@ export default class CreateEvent extends Component {
     twitter: '',
     homepage: '',
     creator: this.props.creator,
+    errMessage: '',
+    showError: false,
+  };
+
+  showErrorHandler = (ev) => {
+    console.log('CLICKED');
+    this.setState({ errMessage: '', showError: false });
   };
 
   onChangeHandler = (ev) => {
     const type = ev.target.type;
+
     this.setState({
       [ev.target.name]: type !== 'checkbox' ? ev.target.value : !this.state[[ev.target.name]],
     });
@@ -42,19 +49,52 @@ export default class CreateEvent extends Component {
   onSubmitHandler = (ev) => {
     if (ev.target.checkValidity()) {
       ev.preventDefault();
+      window.scrollTo(0, 0);
       const formData = new FormData();
       formData.append('data', JSON.stringify(this.state));
 
       if (this.state.banner) {
         formData.append('banner', this.state.banner);
       }
-      sendFormData(formData);
+
+      sendFormData(formData)
+        .then((response) => {
+          if (response.message) {
+            this.setState({ errMessage: response.message, showError: true });
+          } else {
+            this.props.history.push('/');
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
 
   render() {
     return (
       <>
+        <div class="error-modal flex bg-red-200 p-4" style={{ display: this.state.errMessage ? 'flex' : 'none' }}>
+          <div class="mr-4">
+            <div class="h-10 w-10 text-white bg-red-600 rounded-full flex justify-center items-center">
+              <p className="text-sm">Error</p>
+            </div>
+          </div>
+          <div class="flex justify-between w-full">
+            <div class="text-red-600">
+              <p class="mb-2 font-bold">Danger alert</p>
+              <p class="text-xs">{this.state.errMessage}</p>
+            </div>
+            <div class="text-sm text-gray-500">
+              <p
+                className="text-xl cursor-pointer text-red-600 font-bold w-10 h-10 border-red-600 border rounded-3xl flex justify-center items-center"
+                onClick={this.showErrorHandler}
+              >
+                ✕
+              </p>
+            </div>
+          </div>
+        </div>
         <form onSubmit={this.onSubmitHandler} action="#" method="POST">
           <div className="bg-gray-100 pt-12">
             {/* Start Container */}
