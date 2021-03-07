@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 
 export default function EventItem(props) {
 
+  console.log(props)
+
   return (
     // TODO: Link to EventDetail component
     <Link to="" key={props.event._id} className="flex flex-row border-b border-gray-300 p-8">
 
       <div className="mr-12">
-        <img src={props.event.img.imgPath} alt={props.event.img.imgName} style={{ maxWidth: '200px', maxHeight: '120px' }} />
+        {/* <img src={props.event.img.imgPath} alt={props.event.img.imgName} style={{ maxWidth: '200px', maxHeight: '120px' }} /> */}
       </div>
 
       <div>
