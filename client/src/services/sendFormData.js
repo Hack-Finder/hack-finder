@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const sendFormData = (formData) => {
-  axios({
+  return axios({
     url: '/api/events',
     method: 'POST',
     data: formData,
@@ -11,7 +11,9 @@ export const sendFormData = (formData) => {
     },
   })
     .then((response) => {
-      console.log(response);
+      return response.data;
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      return err.response.data;
+    });
 };

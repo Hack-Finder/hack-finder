@@ -62,7 +62,10 @@ eventSchema.pre('save', async function (n) {
   const res = await axios.get(
     `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.location}.json?access_token=${process.env.MAPBOX_TOKEN}`
   );
-  this.coordinates = res.data.features[0].center;
+
+  if (res.data.features[0].center) {
+    this.coordinates = res.data.features[0].center;
+  }
 
   n();
 });

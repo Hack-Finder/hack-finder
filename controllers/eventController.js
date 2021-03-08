@@ -23,10 +23,13 @@ exports.createEvent = (req, res, next) => {
     };
   }
   Event.create(event)
-    .then((response) => {
-      console.log(response);
+    .then(() => {
+      return res.status(200).json({ success: 'Created event.' });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({ message: 'Error while creating the event.' });
+    });
 };
 
 exports.updateEvent = (req, res, next) => {
