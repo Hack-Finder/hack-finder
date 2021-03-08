@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const axios = require('axios');
 
 const eventSchema = new Schema({
   title: {
@@ -12,37 +13,67 @@ const eventSchema = new Schema({
     trim: true,
     required: true,
   },
-  rewardDescription: {
+  rewardsDescription: {
     type: String,
     trim: true,
   },
-  rewardTag: [String],
-  date: {
+  priceMoney: String,
+  priceSpace: String,
+  priceMentorship: String,
+  deadline: {
     type: Date,
     required: true,
   },
-  deadline: Date,
-  location: {
-    street: String,
-    city: String,
-    zip: String,
+  deadlineDescription: {
+    type: String,
+    required: true,
   },
+  deadlineB: {
+    type: Date,
+  },
+  deadlineDescriptionB: {
+    type: String,
+  },
+  location: String,
+  coordinates: [Number],
+  mode: String,
   category: [String],
-  industrie: [String],
-  image: {
+  industry: String,
+  banner: {
     imgName: String,
     imgPath: String,
     publicId: String,
   },
-  socialMeda: {
-    twitter: String,
-    instagram: String,
-    facebook: String,
-    website: String,
+  twitter: String,
+  instagram: String,
+  facebook: String,
+  homepage: String,
+  featured: {
+    type: Boolean,
+    default: false,
   },
-  featured: Boolean,
   creator: { type: Schema.ObjectId, ref: 'User' },
   participants: [{ type: Schema.ObjectId, ref: 'User' }],
+});
+
+eventSchema.pre('save', async function (n) {
+  if (this.mode === 'Online') return n();
+
+  const res = await axios.get(
+    `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.location}.json?access_token=${process.env.MAPBOX_TOKEN}`
+  );
+
+  if (res.data.features[0].center) {
+    this.coordinates = res.data.features[0].center;
+  }
+
+  n();
+});
+
+eventSchema.pre('save', function (n) {
+  this.deadline = new Date(this.deadline);
+  if (this.deadlineB) this.deadlineB = new Date(this.deadlineB);
+  n();
 });
 
 const Event = model('Event', eventSchema);

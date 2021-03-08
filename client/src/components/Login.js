@@ -129,6 +129,7 @@ class Login extends React.Component {
                 Login
               </button>
             </div>
+
             {this.state.message && <h3>{this.state.message}</h3>}
           </form>
         </div>

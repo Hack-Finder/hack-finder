@@ -8,6 +8,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
+    "cloudinary": "^1.25.0",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -16,6 +17,8 @@
     "express-session": "^1.17.1",
     "mongoose": "^5.11.18",
     "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "multer-storage-cloudinary": "^4.0.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   },
