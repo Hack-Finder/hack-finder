@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React from 'react';
 import { getEventDetails } from '../services/event';
 
@@ -22,4 +23,27 @@ export default function EventDetails(props) {
     </div>
   )
 }
+=======
+// import React from 'react'
 
+// export default function EventDetails() {
+//   return (
+//     <div>
+//       <h2>Event Details!!!!!</h2>
+//     </div>
+//   )
+// }
+
+import React, { Component } from 'react'
+>>>>>>> Stashed changes
+
+export default class EventDetails extends Component {
+  
+  render() {
+    return (
+      <div>
+        <h2>Event Details!!!!!</h2>
+      </div>
+    )
+  }
+}
