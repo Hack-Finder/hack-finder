@@ -56,6 +56,7 @@ router.post('/login', (req, res) => {
 });
 
 router.delete('/logout', (req, res) => {
+  console.log('RUNNING SERVER LOGOUT');
   req.logout();
   res.json({ message: 'Successful logout' });
 });
