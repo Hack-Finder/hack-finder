@@ -1,24 +1,10 @@
-// import React, { Component } from 'react';
-
-// export default class UserProfile extends Component {
-
-//   render() {
-
-//     return (
-//       <div>
-//         <h2>User Profile</h2>        
-//       </div>
-//     )
-//   }
-// }
-
-
 import React from 'react'
 
-export default function UserProfile() {
+export default function UserProfile(props) {
+  
   return (
     <div>
-      <h2>User Profile</h2>
+      <h2>Hello, {props.user.username}!</h2>
     </div>
   )
 }

@@ -7,7 +7,7 @@ export default function EventItem(props) {
 
   return (
     // TODO: Link to EventDetail component
-    <Link to="" key={props.event._id} className="flex flex-row border-b border-gray-300 p-8">
+    <Link to={`/event/${props.event._id}`} key={props.event._id} className="flex flex-row border-b border-gray-300 p-8">
 
       <div className="mr-12">
         <img src={props.event.banner.imgPath} alt={props.event.banner.imgName} style={{ maxWidth: '200px', maxHeight: '120px' }} />
