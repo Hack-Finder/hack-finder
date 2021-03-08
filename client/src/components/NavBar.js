@@ -24,6 +24,10 @@ export default class NavBar extends React.Component {
 
   render() {
 
+    // console.log(typeof this.state.user, this.state.user )
+    console.log(this.state.user != null && this.state.user._id)
+
+
     return (
       <nav className="bg-gray-800">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -71,6 +75,10 @@ export default class NavBar extends React.Component {
             {/* User profile section, state: logged in */}
             {this.state.user != null &&
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+
+                {/* Create event  */}
+                <Link to="/start" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Create event</Link>
+
                 {/* <!-- Profile dropdown --> */}
                 <div className="ml-3 relative">
                   {/* Dopdown menu button (user profile picture) */}
@@ -92,9 +100,8 @@ export default class NavBar extends React.Component {
                   {/* Actual profile dropdown menu */}
                   {this.state.showModal &&
                     <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                      <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
-                      <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
-                      <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+                      <Link to={`/user/${this.state.user._id}`} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">My Profile</Link>
+                      <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Log out</a>
                     </div>
                   }
                 </div>
