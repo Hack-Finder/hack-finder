@@ -4,6 +4,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Home from './components/Home';
 import CreateEvent from './components/CreateEvent';
+import UpdateEvent from './components/UpdateEvent';
 import { Route } from 'react-router-dom';
 import Navbar from './components/NavBar';
 class App extends React.Component {
@@ -25,6 +26,11 @@ class App extends React.Component {
         <Route exact path="/login" render={(props) => <Login setUser={this.setUser} {...props} />} />
         <Route exact path="/signup" render={(props) => <Signup setUser={this.setUser} {...props} />} />
         <Route exact path="/start" render={(props) => <CreateEvent creator={this.state.user._id} {...props} />} />
+        <Route
+          exact
+          path="/event/edit/:id"
+          render={(props) => <UpdateEvent creator={this.state.user._id} {...props} />}
+        />
       </>
     );
   }

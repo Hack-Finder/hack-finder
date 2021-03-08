@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { sendFormData } from '../services/sendFormData';
+import axios from 'axios';
 
 export default class CreateEvent extends Component {
   state = {
@@ -25,10 +26,25 @@ export default class CreateEvent extends Component {
     creator: this.props.creator,
     errMessage: '',
     showError: false,
+    event: null,
+    showBannerImage: false,
   };
 
   showErrorHandler = (ev) => {
     this.setState({ errMessage: '', showError: false });
+  };
+
+  componentDidMount = () => {
+    const id = this.props.match.params.id;
+    axios
+      .get(`/api/events/${id}`)
+      .then((response) => {
+        this.setState({ event: response.data });
+        this.handleFormInput(response.data);
+      })
+      .catch((err) => {
+        console.log('CATCH IS TRIGGERED');
+      });
   };
 
   onChangeHandler = (ev) => {
@@ -42,6 +58,7 @@ export default class CreateEvent extends Component {
   handleImageBanner = (ev) => {
     this.setState({
       banner: ev.target.files[0],
+      showBannerImage: false,
     });
   };
 
@@ -51,17 +68,16 @@ export default class CreateEvent extends Component {
       window.scrollTo(0, 0);
       const formData = new FormData();
       formData.append('data', JSON.stringify(this.state));
-
       if (this.state.banner) {
         formData.append('banner', this.state.banner);
       }
 
-      sendFormData(formData, '/api/events', 'POST')
+      sendFormData(formData, `/api/events/${this.props.match.params.id}`, 'PATCH')
         .then((response) => {
           if (response.message) {
             this.setState({ errMessage: response.message, showError: true });
           } else {
-            this.props.history.push('/');
+            // this.props.history.push('/');
           }
         })
         .catch((err) => {
@@ -70,7 +86,27 @@ export default class CreateEvent extends Component {
     }
   };
 
+  handleFormInput = (event) => {
+    this.setState(event);
+    this.handleInputConversion();
+  };
+
+  handleInputConversion = () => {
+    this.setState((state, prop) => {
+      return {
+        priceMoney: state.priceMoney === 'false' ? false : true,
+        priceSpace: state.priceSpace === 'false' ? false : true,
+        priceMentorship: state.priceMentorship === 'false' ? false : true,
+        deadline: state.deadline.split('T')[0],
+        deadlineB: state.deadlineB ? state.deadlineB.split('T')[0] : '',
+        showBannerImage: state.banner !== '' ? true : false,
+      };
+    });
+  };
+
   render() {
+    if (!this.state.event) return <h1>Loading ...</h1>;
+
     return (
       <>
         <div class="error-modal flex bg-red-200 p-4" style={{ display: this.state.errMessage ? 'flex' : 'none' }}>
@@ -100,7 +136,7 @@ export default class CreateEvent extends Component {
 
             <div className="max-w-6xl mx-auto px-4 gap-4">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl text-center mb-12">
-                <span className="block xl:inline">Create Your Event</span>
+                <span className="block xl:inline">Update Your Event</span>
               </h1>
               <div className="hidden sm:block" aria-hidden="true">
                 <div className="py-5">
@@ -194,9 +230,19 @@ export default class CreateEvent extends Component {
                             </div>
                           </div>
                           <div className="col-span-12 sm:col-span-12">
+                            {this.state.showBannerImage && (
+                              <>
+                                <label htmlFor="banner" className="mb-2 block text-md font-medium text-gray-700">
+                                  Current Image
+                                </label>
+                                <img className="mb-4 rounded-md" alt="banner_img" src={this.state.banner.imgPath}></img>
+                              </>
+                            )}
+
                             <label htmlFor="banner" className="mb-2 block text-md font-medium text-gray-700">
-                              Image
+                              Add new Image
                             </label>
+
                             <input
                               type="file"
                               accept="image/jpeg, image/jpg, image/png"
@@ -557,7 +603,7 @@ export default class CreateEvent extends Component {
 
                             <div className="w-1/2 text-right mb-6">
                               <button className="btn-next w-36 focus:outline-none border border-transparent px-5 py-3 rounded-lg text-center text-white bg-indigo-600 hover:bg-indigo-700 text-base font-medium">
-                                Create Event
+                                Update Event
                               </button>
                             </div>
                           </div>
