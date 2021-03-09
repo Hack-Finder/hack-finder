@@ -9,6 +9,7 @@ import Navbar from './components/NavBar';
 import UserProfile from './components/UserProfile';
 import EventDetails from './components/EventDetails';
 
+
 class App extends React.Component {
   state = {
     user: this.props.user,
@@ -29,7 +30,7 @@ class App extends React.Component {
         <Route exact path="/signup" render={(props) => <Signup setUser={this.setUser} {...props} />} />
         <Route exact path="/start" render={(props) => <CreateEvent creator={this.state.user._id} {...props} />} />
         <Route exact path="/user/:id" render={(props) => <UserProfile user={this.state.user} {...props} />} />
-        <Route exact path="/event/:id" render={EventDetails} />
+        <Route exact path="/event/:id" component={EventDetails} />
       </>
     );
   }

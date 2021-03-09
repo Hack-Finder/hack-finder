@@ -11,7 +11,17 @@ exports.getAllEvents = (req, res, next) => {
 };
 
 exports.getEventDetails = (req, res, next) => {
-  res.json({ feedback: 'getEventDetails' });
+  const id = req.params.id;
+  console.log(id)
+
+  Event.findById(id)
+    .then((event) => {
+      res.json(event);
+    })
+    .catch((err) => {
+      next(err);
+    });
+  // res.json({ feedback: 'getEventDetails' });
 };
 
 exports.createEvent = (req, res, next) => {
