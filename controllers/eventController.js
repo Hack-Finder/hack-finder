@@ -22,6 +22,18 @@ exports.getEventDetails = (req, res, next) => {
     });
 };
 
+exports.getEventsByUser = (req, res, next) => {
+  const userId = req.params.id;
+
+  Event.find({ creator: userId })
+    .then((event) => {
+      res.json(event);
+    })
+    .catch((err) => {
+      next(err);
+    });
+};
+
 // res.json({ feedback: 'getEventDetails' });
 // exports.getEventDetails = async (req, res, next) => {
 //   try {
@@ -43,6 +55,7 @@ exports.createEvent = (req, res, next) => {
       publicId: req.file.filename,
     };
   }
+
   Event.create(event)
     .then(() => {
       return res.status(200).json({ success: 'Created event.' });
