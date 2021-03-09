@@ -13,18 +13,6 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'startup-calender',
     allowed_formats: 'jpg, jpeg, png',
-    transformation: [{ width: 700, height: 350, crop: 'fill', quality: 'auto' }],
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
-});
-
-const storageAvatar = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: 'startup-calender',
-    allowed_formats: 'jpg, jpeg, png',
     transformation: [{ width: 350, height: 350, quality: 'auto' }],
   },
   filename: function (req, file, cb) {
@@ -33,6 +21,4 @@ const storageAvatar = new CloudinaryStorage({
 });
 
 const uploader = multer({ storage });
-const uploaderAvatar = multer({ storageAvatar });
-
-module.exports = { uploader, uploaderAvatar, cloudinary };
+module.exports = { uploader, cloudinary };

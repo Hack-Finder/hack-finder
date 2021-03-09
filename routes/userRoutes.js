@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const userController = require('../controllers/userController');
-const passport = require('passport');
+const { uploader } = require('../cloudinary.config.avatar');
 
 router.get('/', userController.getAllUser);
 router.post('/', userController.createUser);
 router.get('/:id', userController.getUserDetails);
-router.put('/:id', userController.updateUser);
+router.put('/:id', uploader.single('avatar'), userController.updateUser);
 router.delete('/:id', userController.deleteUser);
 // router.post('/login', userController.loginUser);
 

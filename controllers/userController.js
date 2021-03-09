@@ -1,6 +1,5 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
-const passport = require('passport');
 
 exports.getAllUser = (req, res, next) => {
   res.json({ feedback: 'getAllUser' });
@@ -30,16 +29,27 @@ exports.createUser = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
-// exports.loginUser =
-//   ('/login',
-//   passport.authenticate('local', {
-//     successRedirect: '/',
-//     failureRedirect: '/login',
-//     passReqToCallback: true,
-//   }));
-
 exports.updateUser = (req, res, next) => {
-  res.json({ feedback: 'updateUser' });
+  let formData = JSON.parse(req.body.data);
+
+  console.log(req.file);
+
+  if (req.file) {
+    formData.avatar = {
+      imgPath: req.file.path,
+      publicId: req.file.filename,
+    };
+  }
+  User.findByIdAndUpdate(req.params.id, formData, {
+    new: true,
+  })
+    .then((user) => {
+      return res.status(200).json({ user });
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({ message: 'Error while updating the user.' });
+    });
 };
 
 exports.deleteUser = (req, res, next) => {

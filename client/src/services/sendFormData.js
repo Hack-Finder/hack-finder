@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export const sendFormData = (formData) => {
+export const sendFormData = (formData, endpoint, method) => {
   return axios({
-    url: '/api/events',
-    method: 'POST',
+    url: endpoint,
+    method: method,
     data: formData,
     headers: {
       Accept: 'application/json',
