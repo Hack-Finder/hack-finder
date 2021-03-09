@@ -3,23 +3,26 @@ import { Link } from 'react-router-dom';
 
 export default function EventItem(props) {
 
-  console.log(props)
+  console.log(props.event.banner)
 
   return (
     // TODO: Link to EventDetail component
-    <Link to="" key={props.event._id} className="flex flex-row border-b border-gray-300 p-8">
+    <Link to={`/event/${props.event._id}`} key={props.event._id} className="flex flex-row border-b border-gray-300 p-8">
 
+      {props.event.banner === undefined ?
+      <div><h2>Image not available</h2></div>:
       <div className="mr-12">
-        {/* <img src={props.event.img.imgPath} alt={props.event.img.imgName} style={{ maxWidth: '200px', maxHeight: '120px' }} /> */}
+        <img src={props.event.banner.imgPath} alt={props.event.banner.imgName} style={{ maxWidth: '200px', maxHeight: '120px' }} />
       </div>
+      }
 
       <div>
         <h2 className="font-bold text-2xl mb-4">{props.event.title}</h2>
 
         <div className="flex flex-row flex-wrap mb-2" >
           <p className="mr-4 mb-1">📌 {props.event.location}</p>
-          <p className="mr-4 mb-1">⏰ {props.event.deadlineA}</p>
-          <p className="mr-4 mb-1">🏆 {props.event.rewardTag[0]}</p>
+          <p className="mr-4 mb-1">⏰ {props.event.deadline}</p>
+          <p className="mr-4 mb-1">🏆 {props.event.priceMoney} {props.event.priceSpace} {props.event.priceMentorship}</p>
         </div>
 
         <p>{props.event.description.slice(0, 120)}...</p>

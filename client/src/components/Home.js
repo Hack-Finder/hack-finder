@@ -2,6 +2,7 @@ import React from 'react';
 import FilteredEventsList from './FilteredEventsList';
 
 export default function Home() {
+  
  return (
       <div>
         <div className="container mx-auto p-6">

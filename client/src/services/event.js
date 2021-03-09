@@ -11,4 +11,15 @@ const getAllEvents = () => {
     });
 };
 
-export { getAllEvents };
+const getEventDetails = (id) => {
+  return axios
+    .get(`/api/events/${id}`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export { getAllEvents, getEventDetails };
