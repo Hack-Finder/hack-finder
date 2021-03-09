@@ -23,8 +23,6 @@ export default class FilteredEventsList extends React.Component {
         {this.state.events.map(event => {
           return (
             <div>
-              {/* <h1>{event.title}</h1>
-              <h1>{event.description}</h1> */}
               <EventItem event = {event}/>
             </div>
           )
@@ -35,15 +33,4 @@ export default class FilteredEventsList extends React.Component {
 
   }
 }
-
-
-
-{/* this.state.events.map(event => {
-  return (
-    <div>
-      <h3>{event.title}</h3>
-    </div>
-  )
-})
-        } */}
 

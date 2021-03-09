@@ -22,6 +22,19 @@ exports.getEventDetails = (req, res, next) => {
     });
 };
 
+exports.getEventsByCreator = (req, res, next) => {
+  const creatorId = req.params.id;
+  console.log(creatorId)
+
+  Event.find({ creator: creatorId })
+    .then((events) => {
+      res.json(events);
+    })
+    .catch((err) => {
+      next(err);
+    });
+};
+
 // res.json({ feedback: 'getEventDetails' });
 // exports.getEventDetails = async (req, res, next) => {
 //   try {
