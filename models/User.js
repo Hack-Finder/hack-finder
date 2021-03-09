@@ -12,6 +12,7 @@ const userSchema = new Schema({
     required: [true, 'This email is already taken'],
     unique: true,
   },
+  description: String,
   role: {
     type: String,
     enum: ['user', 'admin'],
@@ -22,7 +23,7 @@ const userSchema = new Schema({
     type: String,
     required: [true, 'Please enter a password'],
   },
-  image: {
+  avatar: {
     imgName: String,
     imgPath: String,
     publicId: String,
