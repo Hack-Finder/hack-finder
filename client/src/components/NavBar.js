@@ -154,13 +154,21 @@ export default class NavBar extends React.Component {
                       aria-orientation="vertical"
                       aria-labelledby="user-menu"
                     >
-                      <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
-                        Your Profile
-                      </a>
-                      <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
-                        Settings
-                      </a>
-
+                      <Link to="/start">
+                        <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                          Your Profile
+                        </div>
+                      </Link>
+                      <Link to={`/user/edit/${this.state.user._id}`}>
+                        <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                          Settings
+                        </div>
+                      </Link>
+                      <Link to="/event/edit/6045fad83b258eaccee03e7a">
+                        <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                          Event
+                        </div>
+                      </Link>
                       <Link to="/start" onClick={() => this.handleLogout(this.props)}>
                         <div
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-red-600"

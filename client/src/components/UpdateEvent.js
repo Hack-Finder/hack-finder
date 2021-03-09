@@ -248,7 +248,6 @@ export default class CreateEvent extends Component {
                               accept="image/jpeg, image/jpg, image/png"
                               onChange={this.handleImageBanner}
                             />
-                            {/* <Basic /> */}
                           </div>
                         </div>
                       </div>

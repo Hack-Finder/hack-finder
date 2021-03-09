@@ -94,7 +94,7 @@ export default class CreateEvent extends Component {
             </div>
           </div>
         </div>
-        <form onSubmit={this.onSubmitHandler} action="#" method="POST">
+        <form onSubmit={this.onSubmitHandler}>
           <div className="bg-gray-100 pt-12">
             {/* Start Container */}
 
