@@ -7,7 +7,15 @@ exports.getAllUser = (req, res, next) => {
 };
 
 exports.getUserDetails = (req, res, next) => {
-  res.json({ feedback: 'getUserDetails' });
+  const id = req.params.id;
+
+  User.findById(id)
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
 
 // Create User - Signup
