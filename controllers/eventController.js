@@ -12,7 +12,6 @@ exports.getAllEvents = (req, res, next) => {
 
 exports.getEventDetails = (req, res, next) => {
   const id = req.params.id;
-  console.log(id)
 
   Event.findById(id)
     .then((event) => {
@@ -21,8 +20,9 @@ exports.getEventDetails = (req, res, next) => {
     .catch((err) => {
       next(err);
     });
-    
-  // res.json({ feedback: 'getEventDetails' });
+};
+
+// res.json({ feedback: 'getEventDetails' });
 // exports.getEventDetails = async (req, res, next) => {
 //   try {
 //     const event = await Event.findById(req.params.id);

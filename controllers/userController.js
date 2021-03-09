@@ -32,8 +32,6 @@ exports.createUser = (req, res, next) => {
 exports.updateUser = (req, res, next) => {
   let formData = JSON.parse(req.body.data);
 
-  console.log(req.file);
-
   if (req.file) {
     formData.avatar = {
       imgPath: req.file.path,
