@@ -12,7 +12,6 @@ exports.getAllEvents = (req, res, next) => {
 
 exports.getEventDetails = (req, res, next) => {
   const id = req.params.id;
-  console.log(id)
 
   Event.findById(id)
     .then((event) => {
@@ -21,7 +20,19 @@ exports.getEventDetails = (req, res, next) => {
     .catch((err) => {
       next(err);
     });
-  // res.json({ feedback: 'getEventDetails' });
+};
+
+exports.getEventsByCreator = (req, res, next) => {
+  const creatorId = req.params.id;
+  console.log(creatorId)
+
+  Event.find({ creator: creatorId })
+    .then((events) => {
+      res.json(events);
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
 
 exports.createEvent = (req, res, next) => {

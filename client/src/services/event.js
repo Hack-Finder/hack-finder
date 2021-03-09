@@ -22,4 +22,15 @@ const getEventDetails = (id) => {
     });
 };
 
-export { getAllEvents, getEventDetails };
+const getEventsByCreator = (creatorId) => {
+  return axios
+    .get(`/api/events/creator/${creatorId}`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export { getAllEvents, getEventDetails, getEventsByCreator };
