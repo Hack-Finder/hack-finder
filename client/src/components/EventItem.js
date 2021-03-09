@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 export default function EventItem(props) {
 
-  console.log(props.event.banner)
-
   return (
     // TODO: Link to EventDetail component
     <Link to={`/event/${props.event._id}`} key={props.event._id} className="flex flex-row border-b border-gray-300 p-8">
