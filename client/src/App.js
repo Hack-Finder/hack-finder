@@ -25,6 +25,7 @@ class App extends React.Component {
   };
 
   render() {
+
     return (
       <>
         <Navbar user={this.state.user} />
