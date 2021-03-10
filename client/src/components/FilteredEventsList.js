@@ -19,10 +19,10 @@ export default class FilteredEventsList extends React.Component {
     if (this.state.events === null) return (<h3>Loading...</h3>)
 
     return (
-      <div>
+      <div className="grid grid-cols-4 gap-4 ">
         {this.state.events.map(event => {
           return (
-            <div>
+            <div className="col-start-2 col-span-3">
               <EventItem event = {event}/>
             </div>
           )

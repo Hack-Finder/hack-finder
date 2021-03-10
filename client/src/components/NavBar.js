@@ -94,7 +94,7 @@ export default class NavBar extends React.Component {
                   src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
                   alt="Workflow"
                 /> */}
-                <svg className="block h-36 w-36 pt-14" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="320.397" height="205.568" viewBox="0 0 320.397 205.568">
+                <svg className="block h-36 w-36 m-10 pt-14" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="320.397" height="205.568" viewBox="0 0 320.397 205.568">
                     <defs>
                       <filter id="Rechteck_17" x="0" y="0" width="315.331" height="142.159" filterUnits="userSpaceOnUse">
                         <feOffset dy="16" input="SourceAlpha"/>
@@ -119,7 +119,7 @@ export default class NavBar extends React.Component {
                           <g transform="matrix(1.06, 0, -0.06, 1.02, -39.74, -22.49)" filter="url(#Rechteck_18)">
                             <rect id="Rechteck_18-2" data-name="Rechteck 18" width="259" height="64.405" transform="matrix(0.95, 0, 0.06, 0.98, 42.86, 87.12)" fill="#ff00f5"/>
                           </g>
-                          <text id="CALENDAR" transform="translate(61.438 105.858)" fill="#fdfdfd" font-size="32" font-family="Helvetica" letter-spacing="-0.003em"><tspan x="0" y="0">CALENDAR</tspan></text>
+                          <text id="CALENDAR" transform="translate(61.438 105.858)" fill="#111827" font-size="32" font-family="Helvetica" letter-spacing="-0.003em"><tspan x="0" y="0">CALENDAR</tspan></text>
                         </g>
                   </svg>
               </div>
@@ -133,7 +133,7 @@ export default class NavBar extends React.Component {
               {/* Log in/Sign up link group, shown when there is no logged in user */}
               {this.state.user === null && (
                 <div className="hidden sm:block sm:ml-6">
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-8">
                     <Link
                       to="/signup"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -153,11 +153,11 @@ export default class NavBar extends React.Component {
 
             {/* User profile section, state: logged in */}
             {this.state.user != null && (
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div className="space-x-8 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Create event  */}
                 <Link
                   to="/start"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-grey-700 bg-yellow-300 hover:bg-pink-400 hover:text-grey-400 m-5 px-4 py-2 text-sm font-medium "
                 >
                   Create event
                 </Link>
