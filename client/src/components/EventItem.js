@@ -23,9 +23,9 @@ export default function EventItem(props) {
           <p className="mr-4 mb-1">📌 {props.event.location}</p>
           <p className="mr-4 mb-1">⏰ {dateFormater(props.event.deadline)}</p>
 
-          <p className="mr-4 mb-1">🏆 {(this.state.event.priceMoney === 'true') && 'Money '}
-            {(this.state.event.priceSpace === 'true') && 'Space '}
-            {(this.state.event.priceMentorship === 'true') && 'Mentorship'}
+          <p className="mr-4 mb-1">🏆 {(props.event.priceMoney === 'true') && 'Money '}
+            {(props.event.priceSpace === 'true') && 'Space '}
+            {(props.event.priceMentorship === 'true') && 'Mentorship'}
           </p>
 
         </div>
