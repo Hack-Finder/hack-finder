@@ -1,7 +1,7 @@
 import { React, Component } from 'react';
 import { getEventDetails } from '../services/event';
 import { getUserDetails } from '../services/user';
-import {dateFormater} from '../services/helpers';
+import { dateFormater } from '../services/helpers';
 
 
 export default class EventDetails extends Component {
@@ -25,8 +25,6 @@ export default class EventDetails extends Component {
   }
 
   render() {
-
-    console.log(this.state.event)
 
     if (this.state.event === null || this.state.creator === null) return (<h3>Loading...</h3>)
 
@@ -61,10 +59,13 @@ export default class EventDetails extends Component {
             <p>{this.state.event.deadlineDescriptionB}</p>
             <p>{this.state.event.location}</p>
             <p>{this.state.event.description}</p>
+
+            <p>🏆 {(this.state.event.priceMoney === 'true') && 'Money '}
+              {(this.state.event.priceSpace === 'true') && 'Space '}
+              {(this.state.event.priceMentorship === 'true') && 'Mentorship'}
+            </p>
+
             <p>{this.state.event.rewardsDescription}</p>
-            <p>{this.state.event.priceMoney}</p>
-            <p>{this.state.event.priceSpace}</p>
-            <p>{this.state.event.priceMentorship}</p>
           </div>
 
         </div>

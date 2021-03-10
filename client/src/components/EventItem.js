@@ -22,7 +22,12 @@ export default function EventItem(props) {
         <div className="flex flex-row flex-wrap mb-2" >
           <p className="mr-4 mb-1">📌 {props.event.location}</p>
           <p className="mr-4 mb-1">⏰ {dateFormater(props.event.deadline)}</p>
-          <p className="mr-4 mb-1">🏆 {props.event.priceMoney} {props.event.priceSpace} {props.event.priceMentorship}</p>
+
+          <p className="mr-4 mb-1">🏆 {(this.state.event.priceMoney === 'true') && 'Money '}
+            {(this.state.event.priceSpace === 'true') && 'Space '}
+            {(this.state.event.priceMentorship === 'true') && 'Mentorship'}
+          </p>
+
         </div>
 
         <p>{props.event.description.slice(0, 120)}...</p>
