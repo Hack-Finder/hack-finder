@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const axios = require('axios');
+const User = require('./User');
 
 const eventSchema = new Schema({
   title: {
@@ -74,6 +75,33 @@ eventSchema.pre('save', function (n) {
   this.deadline = new Date(this.deadline);
   if (this.deadlineB) this.deadlineB = new Date(this.deadlineB);
   n();
+});
+
+eventSchema.pre('save', function (n) {
+  this.deadline = new Date(this.deadline);
+  if (this.deadlineB) this.deadlineB = new Date(this.deadlineB);
+  n();
+});
+
+eventSchema.pre('save', async function (n) {
+  if (!this.isNew) return;
+  const documentId = this._id;
+
+  var update = { $addToSet: { eventsCreated: documentId } };
+  var options = { upsert: true, new: true, setDefaultsOnInsert: true };
+
+  await User.findByIdAndUpdate(this.creator, update, options);
+});
+
+eventSchema.pre('save', async function (n) {
+  if (!this.isNew) return;
+
+  (this.banner = {
+    imgName: 'Banner Event Calender',
+    imgPath: 'https://res.cloudinary.com/dvofkuyja/image/upload/v1615301984/startup-calender/default_banner_ewe7cs.png',
+    publicId: String,
+  }),
+    n();
 });
 
 const Event = model('Event', eventSchema);
