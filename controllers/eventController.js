@@ -42,7 +42,6 @@ exports.getEventsByCreator = (req, res, next) => {
 
 //     res.status(200).json(event);
 //   } catch (err) {
-//     console.log(err);
 //     res.status(500).json({ message: 'Server Error' });
 //   }
 // };
