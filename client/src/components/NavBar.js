@@ -33,6 +33,8 @@ export default class NavBar extends React.Component {
   };
 
   render() {
+  console.log(this.state.user)
+
     return (
       <nav className="bg-gray-800">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -132,7 +134,7 @@ export default class NavBar extends React.Component {
 
               {/* Log in/Sign up link group, shown when there is no logged in user */}
               {this.state.user === null && (
-                <div className="hidden sm:block sm:ml-6">
+                <div className="space-x-8 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   <div className="flex space-x-8">
                     <Link
                       to="/signup"
