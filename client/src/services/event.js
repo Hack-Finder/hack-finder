@@ -33,4 +33,18 @@ const getEventsByCreator = (creatorId) => {
     });
 };
 
-export { getAllEvents, getEventDetails, getEventsByCreator };
+const deleteEvent = (eventId) => {
+
+  console.log('delete event called')
+  
+  return axios
+    .delete(`/api/events/${eventId}`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export { getAllEvents, getEventDetails, getEventsByCreator, deleteEvent };

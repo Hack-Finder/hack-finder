@@ -28,7 +28,7 @@ class App extends React.Component {
     return (
       <>
         <Navbar user={this.state.user} />
-        <Route exact path="/" render={Home} />
+        <Route exact path="/" render={(props) => <Home setUser={this.setUser} {...props} />} />
         <Route exact path="/login" render={(props) => <Login setUser={this.setUser} {...props} />} />
         <Route exact path="/signup" render={(props) => <Signup setUser={this.setUser} {...props} />} />
         <Route exact path="/start" render={(props) => <CreateEvent creator={this.state.user._id} {...props} />} />

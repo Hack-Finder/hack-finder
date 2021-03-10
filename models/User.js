@@ -19,6 +19,7 @@ const userSchema = new Schema({
     default: 'user',
   },
   eventsCreated: [{ type: Schema.ObjectId, ref: 'Event' }],
+
   password: {
     type: String,
     required: [true, 'Please enter a password'],

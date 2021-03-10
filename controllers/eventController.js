@@ -24,8 +24,6 @@ exports.getEventDetails = (req, res, next) => {
 
 exports.getEventsByCreator = (req, res, next) => {
   const creatorId = req.params.id;
-  console.log(creatorId)
-
   Event.find({ creator: creatorId })
     .then((events) => {
       res.json(events);
@@ -49,6 +47,7 @@ exports.getEventsByCreator = (req, res, next) => {
 // };
 
 exports.createEvent = (req, res, next) => {
+  console.log('create event called');
   let event = JSON.parse(req.body.data);
   if (req.file) {
     event.banner = {
@@ -56,6 +55,7 @@ exports.createEvent = (req, res, next) => {
       publicId: req.file.filename,
     };
   }
+
   Event.create(event)
     .then(() => {
       return res.status(200).json({ success: 'Created event.' });
@@ -86,7 +86,17 @@ exports.updateEvent = (req, res, next) => {
 };
 
 exports.deleteEvent = (req, res, next) => {
-  res.json({ feedback: 'deleteEvent' });
+  const eventId = req.params.id;
+  console.log('deleteEvent called');
+  console.log('event Id:', eventId);
+
+  Event.findByIdAndDelete(eventId)
+    .then(() => {
+      res.status(200).json({ message: 'Event deleted' });
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
 
 exports.searchEvent = (req, res, next) => {

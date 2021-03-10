@@ -1,36 +1,24 @@
-import React from 'react'
-import { getAllEvents } from '../services/event';
-import EventItem from './EventItem'
+import React from 'react';
+import EventItem from './EventItem';
 
 export default class FilteredEventsList extends React.Component {
-
-  state = {
-    events: null
-  }
-
-  componentDidMount() {
-    getAllEvents().then(events => {
-      this.setState({ events: events })
-    });
-  }
-
   render() {
-
-    if (this.state.events === null) return (<h3>Loading...</h3>)
+    if (this.props.events === null) return <h3>Loading...</h3>;
+    if (this.props.events.length === 0) return <h3 className="text-xl mt-6">No events found...</h3>;
 
     return (
-      <div className="grid grid-cols-4 gap-4 ">
-        {this.state.events.map(event => {
-          return (
-            <div className="col-start-2 col-span-3">
-              <EventItem event = {event}/>
-            </div>
-          )
-        })}
-      </div>
 
-    )
-
+      <>
+        <div className="grid grid-cols-4 gap-4">
+          {this.props.events.map((event) => {
+            return (
+              <div className="col-start-2 col-span-3">
+                <EventItem event={event} />
+              </div>
+            );
+          })}
+        </div>
+      </>
+    );
   }
 }
-
