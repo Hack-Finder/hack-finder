@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { sendFormData } from '../services/sendFormData';
 import axios from 'axios';
-
+import { deleteEvent } from '../services/event';
 export default class CreateEvent extends Component {
   state = {
     title: '',
@@ -32,6 +32,19 @@ export default class CreateEvent extends Component {
 
   showErrorHandler = (ev) => {
     this.setState({ errMessage: '', showError: false });
+  };
+
+  deleteEventHandler = async () => {
+    try {
+      const response = await deleteEvent(this.props.match.params.id);
+      if (response.message) {
+        this.setState({ errMessage: response.message, showError: true });
+      } else {
+        this.props.history.push('/profile');
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   componentDidMount = () => {
@@ -133,6 +146,22 @@ export default class CreateEvent extends Component {
         <form onSubmit={this.onSubmitHandler} action="#" method="POST">
           <div className="bg-gray-100 pt-12">
             {/* Start Container */}
+            <div className="max-w-6xl mx-auto px-4 gap-4">
+              <div class="">
+                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                  Delete event
+                </h3>
+                <div class="mt-2">
+                  <button
+                    onClick={this.deleteEventHandler}
+                    type="button"
+                    class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
 
             <div className="max-w-6xl mx-auto px-4 gap-4">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl text-center mb-12">
@@ -585,6 +614,7 @@ export default class CreateEvent extends Component {
                   </div>
                 </div>
               </div>
+
               <div className="max-w-6xl mx-auto px-4 gap-4">
                 <div className="hidden sm:block" aria-hidden="true">
                   <div className="py-5">

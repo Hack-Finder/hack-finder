@@ -34,9 +34,6 @@ const getEventsByCreator = (creatorId) => {
 };
 
 const deleteEvent = (eventId) => {
-
-  console.log('delete event called')
-  
   return axios
     .delete(`/api/events/${eventId}`)
     .then((response) => {

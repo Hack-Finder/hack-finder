@@ -17,6 +17,7 @@ class App extends React.Component {
   };
 
   setUser = (user) => {
+    console.log('SetUser');
     this.setState((state, props) => {
       return {
         user: user,
@@ -33,6 +34,7 @@ class App extends React.Component {
         <Route exact path="/signup" render={(props) => <Signup setUser={this.setUser} {...props} />} />
         <Route exact path="/start" render={(props) => <CreateEvent creator={this.state.user._id} {...props} />} />
         <Route exact path="/user/:id" render={(props) => <UserProfile user={this.state.user} {...props} />} />
+        <Route exact path="/profile" render={(props) => <UserProfile user={this.state.user} {...props} />} />
         <Route exact path="/event/:id" component={EventDetails} />
         <Route
           exact

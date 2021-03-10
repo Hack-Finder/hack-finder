@@ -2,9 +2,8 @@ import React from 'react';
 import FilteredEventsList from './FilteredEventsList';
 import { getAllEvents } from '../services/event';
 
-
 // export default function Home() {
-  
+
 //  return (
 //       <div >
 //         <svg className="flex-1 flex max-w-5xl mx-auto px-6 sm:px-6 lg:px-8" id="Hero_slider" xmlns="http://www.w3.org/2000/svg" width="1400" height="400" viewBox="0 0 1681.398 415">
@@ -209,7 +208,7 @@ export default class Home extends React.Component {
           <div className="grid grid-cols-12 gap-4">
             <div className="col-span-12 sm:col-span-12">
               <h3 className="text-2xl font-bold">Upcoming events</h3>
-              <div className="eventsList">
+              <div className="eventsList mt-6">
                 <FilteredEventsList events={this.state.events} />
               </div>
             </div>
