@@ -26,7 +26,7 @@ export default class UserProfile extends Component {
     
       <div className="bg-white shadow-xl  m-20 sm:rounded-lg">
      
-        <div className="flex flex-col items-center flex-col px-4 py-5 sm:px-6 ">
+        <div className="flex flex-col items-center px-4 py-5 sm:px-6 ">
           {/* <img src={this.props.user.username} alt="User" /> */}
           <span class="mb-6 mt-8 inline-block h-28 w-28 rounded-full overflow-hidden bg-gray-100">
                   <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
@@ -60,9 +60,9 @@ export default class UserProfile extends Component {
         
 
           <div className="flex-auto justify-center flex-col px-4 py-5 sm:px-6 ">
-            <dt className="text-sm font-medium text-gray-500">
-                          Ela's events
-                        </dt>
+                      <dt className="text-sm font-medium text-gray-500">
+                            {this.props.user.username}'s events
+                      </dt>
 
             {(this.state.events === null) ? <h2>Loading...</h2> :
 
