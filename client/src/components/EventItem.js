@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { dateFormater } from '../services/helpers';
+
 
 export default function EventItem(props) {
 
@@ -19,7 +21,7 @@ export default function EventItem(props) {
 
         <div className="flex flex-row flex-wrap mb-2" >
           <p className="mr-4 mb-1">📌 {props.event.location}</p>
-          <p className="mr-4 mb-1">⏰ {props.event.deadline}</p>
+          <p className="mr-4 mb-1">⏰ {dateFormater(props.event.deadline)}</p>
           <p className="mr-4 mb-1">🏆 {props.event.priceMoney} {props.event.priceSpace} {props.event.priceMentorship}</p>
         </div>
 
