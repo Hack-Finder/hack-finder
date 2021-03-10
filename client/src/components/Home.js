@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 import FilteredEventsList from './FilteredEventsList';
 import { getAllEvents } from '../services/event';
@@ -9,7 +8,6 @@ export default class Home extends React.Component {
     reward: '',
     mode: '',
     industry: '',
-    // date: new Date().toLocaleDateString('en-CA'),
     events: null,
     eventsCopy: null,
   };
@@ -168,19 +166,10 @@ export default class Home extends React.Component {
               </svg>
             </div>
           </div>
-          {/* <input
-            onChange={this.onChangeHandler}
-            value={this.state.date}
-            name="deadline"
-            required
-            type="date"
-            className="w-full h-10 px-4 leading-none rounded-lg border border-gray-200 focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-          /> */}
         </div>
         <div className="max-w-5xl mx-auto mb-6 mt-6">
           <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-12 sm:col-span-2">xxxx</div>
-            <div className="col-span-12 sm:col-span-10">
+            <div className="col-span-12 sm:col-span-12">
               <h3 className="text-2xl font-bold">Upcoming events</h3>
               <div className="eventsList">
                 <FilteredEventsList events={this.state.events} />
