@@ -22,12 +22,11 @@ exports.getEventDetails = (req, res, next) => {
     });
 };
 
-exports.getEventsByUser = (req, res, next) => {
-  const userId = req.params.id;
-
-  Event.find({ creator: userId })
-    .then((event) => {
-      res.json(event);
+exports.getEventsByCreator = (req, res, next) => {
+  const creatorId = req.params.id;
+  Event.find({ creator: creatorId })
+    .then((events) => {
+      res.json(events);
     })
     .catch((err) => {
       next(err);
@@ -48,6 +47,7 @@ exports.getEventsByUser = (req, res, next) => {
 // };
 
 exports.createEvent = (req, res, next) => {
+  console.log('create event called');
   let event = JSON.parse(req.body.data);
   if (req.file) {
     event.banner = {
@@ -86,7 +86,17 @@ exports.updateEvent = (req, res, next) => {
 };
 
 exports.deleteEvent = (req, res, next) => {
-  res.json({ feedback: 'deleteEvent' });
+  const eventId = req.params.id;
+  console.log('deleteEvent called');
+  console.log('event Id:', eventId);
+
+  Event.findByIdAndDelete(eventId)
+    .then(() => {
+      res.status(200).json({ message: 'Event deleted' });
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
 
 exports.searchEvent = (req, res, next) => {
