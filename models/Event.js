@@ -96,12 +96,15 @@ eventSchema.pre('save', async function (n) {
 eventSchema.pre('save', async function (n) {
   if (!this.isNew) return;
 
-  (this.banner = {
-    imgName: 'Banner Event Calender',
-    imgPath: 'https://res.cloudinary.com/dvofkuyja/image/upload/v1615301984/startup-calender/default_banner_ewe7cs.png',
-    publicId: String,
-  }),
-    n();
+  if (!this.banner.imgPath) {
+    this.banner = {
+      imgName: 'Banner Event Calender',
+      imgPath:
+        'https://res.cloudinary.com/dvofkuyja/image/upload/v1615301984/startup-calender/default_banner_ewe7cs.png',
+      publicId: null,
+    };
+  }
+  n();
 });
 
 const Event = model('Event', eventSchema);

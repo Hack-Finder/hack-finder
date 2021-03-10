@@ -1,4 +1,5 @@
 const Event = require('../models/Event');
+const { cloudinary, uploader } = require('../cloudinary.config');
 
 exports.getAllEvents = (req, res, next) => {
   Event.find()
@@ -47,9 +48,10 @@ exports.getEventsByCreator = (req, res, next) => {
 // };
 
 exports.createEvent = (req, res, next) => {
-  console.log('create event called');
   let event = JSON.parse(req.body.data);
+
   if (req.file) {
+    console.log('file uploaded');
     event.banner = {
       imgPath: req.file.path,
       publicId: req.file.filename,
@@ -87,11 +89,13 @@ exports.updateEvent = (req, res, next) => {
 
 exports.deleteEvent = (req, res, next) => {
   const eventId = req.params.id;
-  console.log('deleteEvent called');
-  console.log('event Id:', eventId);
 
   Event.findByIdAndDelete(eventId)
-    .then(() => {
+    .then((event) => {
+      if (event.banner.publicId) {
+        cloudinary.uploader.destroy(event.publicId, function (err, result) {});
+      }
+
       res.status(200).json({ message: 'Event deleted' });
     })
     .catch((err) => {
