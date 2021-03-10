@@ -1,6 +1,7 @@
 import { React, Component } from 'react';
 import { getEventDetails } from '../services/event';
 import { getUserDetails } from '../services/user';
+import { dateFormater } from '../services/helpers';
 
 
 export default class EventDetails extends Component {
@@ -52,16 +53,19 @@ export default class EventDetails extends Component {
 
           <div id="event-details-main">
             <h1>{this.state.event.title}</h1>
-            <p>{this.state.event.deadline}</p>
+            <p>{dateFormater(this.state.event.deadline)}</p>
             <p>{this.state.event.deadlineDescription}</p>
-            <p>{this.state.event.deadlineB}</p>
+            <p>{dateFormater(this.state.event.deadlineB)}</p>
             <p>{this.state.event.deadlineDescriptionB}</p>
             <p>{this.state.event.location}</p>
             <p>{this.state.event.description}</p>
+
+            <p>🏆 {(this.state.event.priceMoney === 'true') && 'Money '}
+              {(this.state.event.priceSpace === 'true') && 'Space '}
+              {(this.state.event.priceMentorship === 'true') && 'Mentorship'}
+            </p>
+
             <p>{this.state.event.rewardsDescription}</p>
-            <p>{this.state.event.priceMoney}</p>
-            <p>{this.state.event.priceSpace}</p>
-            <p>{this.state.event.priceMentorship}</p>
           </div>
 
         </div>
