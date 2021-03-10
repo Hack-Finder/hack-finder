@@ -16,6 +16,14 @@ export default class NavBar extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.user !== prevProps.user) {
+      this.setState({
+        user: this.props.user,
+      });
+    }
+  }
+
   showModal = () => {
     this.setState({
       showModal: !this.state.showModal,

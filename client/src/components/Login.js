@@ -17,6 +17,7 @@ class Login extends React.Component {
   onSubmitHandler = (ev) => {
     ev.preventDefault();
     login(this.state.username, this.state.password).then((user) => {
+      console.log(user)
       if (user.message) {
         this.setState({
           message: user.message,
@@ -25,7 +26,7 @@ class Login extends React.Component {
         });
       } else {
         this.props.setUser(user);
-        this.props.history.push('/profile');
+        this.props.history.push('/');
       }
     });
   };
