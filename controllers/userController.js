@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
+const { cloudinary, uploader } = require('../cloudinary.config');
 
 exports.getAllUser = (req, res, next) => {
   res.json({ feedback: 'getAllUser' });
@@ -50,6 +51,12 @@ exports.updateUser = (req, res, next) => {
     });
 };
 
-exports.deleteUser = (req, res, next) => {
-  res.json({ feedback: 'deleteUser' });
+exports.deleteUser = async (req, res, next) => {
+  const deletedUser = await User.findByIdAndDelete(req.params.id);
+  req.logout();
+  if (deletedUser.avatar.publicId) {
+    cloudinary.uploader.destroy(deletedUser.avatar.publicId, function (err, result) {});
+  }
+
+  res.status(200).json({ feedback: 'User deleted' });
 };
