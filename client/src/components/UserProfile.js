@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getEventsByCreator } from '../services/event';
+import { getEventsByCreator, deleteEvent } from '../services/event';
 import { Link } from 'react-router-dom';
 import EventItem from './EventItem';
 
@@ -15,6 +15,15 @@ export default class UserProfile extends Component {
     getEventsByCreator(creatorId).then(events => {
       this.setState({ events: events })
     });
+  }
+
+  deleteEventHandler = (event) => {
+    const eventId = event.target.id
+    console.log(event.target.id)
+    deleteEvent(eventId).then(response => {
+      console.log(response)
+      this.componentDidMount()
+    })
   }
 
   render() {
@@ -40,12 +49,8 @@ export default class UserProfile extends Component {
                 return (
                   <div>
                     <EventItem event={event} />
-                    <Link to={`/event/edit/${event._id}`}>
-                      Edit
-                    </Link>
-                    <Link to="">
-                      Delete
-                    </Link>
+                    <Link to={`/event/edit/${event._id}`}>Edit</Link>
+                    <button onClick={this.deleteEventHandler} id={event._id}>Delete</button>
                   </div>
                 )
               })}
