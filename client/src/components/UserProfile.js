@@ -82,8 +82,8 @@ export default class UserProfile extends Component {
                       <div className="flex relative">
                         <Link to={`/event/edit/${event._id}`}>
                           <div
-                            className="flex cursor-pointer absolute text-md bg-yellow-200 p-4 rounded-lg delete-btn font-medium"
-                            style={{ right: '10px', top: '25px' }}
+                            className="flex cursor-pointer absolute text-md p-4 rounded-lg delete-btn font-medium"
+                            style={{ right: '10px', top: '25px', backgroundColor: '#fcff49' }}
                           >
                             <svg
                               className="h-4 w-4 self-center mr-1"

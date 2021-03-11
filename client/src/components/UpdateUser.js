@@ -188,7 +188,7 @@ export default class UpdateUser extends Component {
                         </div>
 
                         <div className="w-1/2 text-right mb-6">
-                          <button className="btn-next w-42 focus:outline-none border border-transparent px-5 py-3 rounded-lg text-center text-white bg-indigo-600 hover:bg-indigo-700 text-base font-medium">
+                          <button className="btn-next w-42 focus:outline-none border border-transparent px-5 py-3 rounded-lg text-center text-white bg-pink-600 hover:bg-pink-700 text-base font-medium">
                             Update Profile
                           </button>
                         </div>

@@ -285,7 +285,7 @@ export default class CreateEvent extends Component {
                                 value={this.state.homepage}
                                 name="homepage"
                                 id="company_website"
-                                className="placeholder-gray-300 px-2 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                className="placeholder-gray-300 px-2 border focus:ring-pink-500 focus:border-pink-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                                 placeholder="Your homepage"
                               />
                             </div>
@@ -363,7 +363,7 @@ export default class CreateEvent extends Component {
                                   checked={this.state.priceMoney}
                                   name="priceMoney"
                                   type="checkbox"
-                                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                  className="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300 rounded"
                                 />
                               </div>
                               <div className="ml-3 text-sm mb-4">
@@ -382,7 +382,7 @@ export default class CreateEvent extends Component {
                                   checked={this.state.priceSpace}
                                   name="priceSpace"
                                   type="checkbox"
-                                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                  className="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300 rounded"
                                 />
                               </div>
                               <div className="ml-3 text-sm mb-4">
@@ -401,7 +401,7 @@ export default class CreateEvent extends Component {
                                   checked={this.state.priceMentorship}
                                   name="priceMentorship"
                                   type="checkbox"
-                                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                  className="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300 rounded"
                                 />
                               </div>
                               <div className="ml-3 text-sm">
@@ -563,7 +563,7 @@ export default class CreateEvent extends Component {
                                   name="facebook"
                                   type="url"
                                   id="company_website"
-                                  className="placeholder-gray-300 px-2 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                  className="placeholder-gray-300 px-2 border focus:ring-pink-500 focus:border-pink-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                                   placeholder="www.facebook.com"
                                 />
                               </div>
@@ -585,7 +585,7 @@ export default class CreateEvent extends Component {
                                   value={this.state.instagram}
                                   name="instagram"
                                   id="company_website"
-                                  className="placeholder-gray-300 px-2 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                  className="placeholder-gray-300 px-2 border focus:ring-pink-500 focus:border-pink-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                                   placeholder="www.instagram.com"
                                 />
                               </div>
@@ -606,7 +606,7 @@ export default class CreateEvent extends Component {
                                   value={this.state.twitter}
                                   name="twitter"
                                   id="company_website"
-                                  className="placeholder-gray-300 px-2 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                  className="placeholder-gray-300 px-2 border focus:ring-pink-500 focus:border-pink-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                                   placeholder="www.twitter.com"
                                 />
                               </div>
@@ -636,7 +636,7 @@ export default class CreateEvent extends Component {
                             </div>
 
                             <div className="w-1/2 text-right mb-6">
-                              <button className="btn-next w-36 focus:outline-none border border-transparent px-5 py-3 rounded-lg text-center text-white bg-indigo-600 hover:bg-indigo-700 text-base font-medium">
+                              <button className="btn-next w-36 focus:outline-none border border-transparent px-5 py-3 rounded-lg text-center text-white bg-pink-600 hover:bg-pink-700 text-base font-medium">
                                 Update Event
                               </button>
                             </div>
