@@ -57,20 +57,23 @@ const eventSchema = new Schema({
   participants: [{ type: Schema.ObjectId, ref: 'User' }],
 });
 
-// mapbox
-// eventSchema.pre('save', async function (n) {
-//   if (this.mode === 'Online') return n();
+eventSchema.pre('save', async function (n) {
+  try {
+    if (this.mode === 'Online' || this.location.length < 5) return n();
 
-//   const res = await axios.get(
-//     `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.location}.json?access_token=${process.env.MAPBOX_TOKEN}`
-//   );
+    const res = await axios.get(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.location}.json?access_token=${process.env.MAPBOX_TOKEN}`
+    );
 
-//   if (res.data.features[0].center) {
-//     this.coordinates = res.data.features[0].center;
-//   }
+    if (res.data.features[0].center) {
+      this.coordinates = res.data.features[0].center;
+    }
 
-//   n();
-// });
+    n();
+  } catch (err) {
+    n();
+  }
+});
 
 eventSchema.pre('save', function (n) {
   this.deadline = new Date(this.deadline);

@@ -93,7 +93,7 @@ export default class NavBar extends React.Component {
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     style={{ width: '9rem', marginTop: '50px', zIndex: '100' }}
-                    src="/logo_startup_calender.png"
+                    src="/logo_startup_calendar_2.png"
                     alt=""
                   />
                 </div>
@@ -106,13 +106,13 @@ export default class NavBar extends React.Component {
                   <div className="flex space-x-8">
                     <Link
                       to="/signup"
-                      className="text-white hover:bg-yellow-300 hover:text-black px-3 py-2 rounded-md text-sm font-bold"
+                      className="bg-signal-y btn-signup hover:bg-pink-600 text-white px-3 py-2 rounded-md text-sm font-bold"
                     >
                       Sign up
                     </Link>
                     <Link
                       to="/login"
-                      className="text-white hover:bg-yellow-300 hover:text-black px-3 py-2 rounded-md text-sm font-bold"
+                      className="btn-login hover:bg-pink-600 text-white hover:text-white px-3 py-2 rounded-md text-sm font-bold"
                     >
                       Log in
                     </Link>
@@ -128,9 +128,9 @@ export default class NavBar extends React.Component {
                 <Link
                   to="/start"
                   style={{ backgroundColor: '#fcff49' }}
-                  className="hover:bg-pink-400 hover:text-grey-400 m-5 px-4 py-2 text-sm font-bold "
+                  className="hover:bg-pink-400 hover:text-grey-400 m-5 px-4 py-2 text-sm font-medium "
                 >
-                  Create event
+                  Create Event
                 </Link>
 
                 {/* <!-- Profile dropdown --> */}
@@ -150,10 +150,16 @@ export default class NavBar extends React.Component {
                       {(this.state.user.hasOwnProperty('avatar') === false ||
                         (this.state.user.hasOwnProperty('avatar') === true &&
                           this.state.user.avatar.imgPath === undefined)) && (
-                          <svg className="rounded-full h-full w-full text-gray-300 border-2 border-grey-300 " fill="currentColor" viewBox="0 0 24 24" width="36px" height="36px">
-                            <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                          </svg>
-                        )}
+                        <svg
+                          className="rounded-full h-full w-full text-gray-300 border-2 border-grey-300 "
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                          width="36px"
+                          height="36px"
+                        >
+                          <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                      )}
 
                       {this.state.user.hasOwnProperty('avatar') === true &&
                         this.state.user.avatar.imgPath != undefined && (
@@ -230,7 +236,7 @@ export default class NavBar extends React.Component {
             </Link>
           </div>
         </div>
-      </nav >
+      </nav>
     );
   }
 }

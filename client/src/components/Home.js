@@ -165,8 +165,7 @@ export default class Home extends React.Component {
             <input
               type="search"
               name="search"
-              class="h-12 w-full py-4 text-sm text-gray-900 placeholder-gray-700 rounded-full pl-10 border border-gray-900 focus:outline-none"
-
+              class="h-12 w-full py-4 text-md text-gray-900 placeholder-gray-700 rounded-full pl-10 border border-gray-900 focus:outline-none"
               placeholder="Search for events"
               autocomplete="off"
               onChange={this.onChangeHandler}

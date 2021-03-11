@@ -17,7 +17,7 @@ class Login extends React.Component {
   onSubmitHandler = (ev) => {
     ev.preventDefault();
     login(this.state.username, this.state.password).then((user) => {
-      console.log(user)
+      console.log(user);
       if (user.message) {
         this.setState({
           message: user.message,
@@ -43,14 +43,8 @@ class Login extends React.Component {
             alt="Workflow"
           ></img> */}
             <h2 className="mt-6 text-center text-5xl font-extrabold text-gray-900">Login</h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
-              Or
-              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                start your 14-day free trial
-              </a>
-            </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form className="mt-8 space-y-2" action="#" method="POST">
             <input type="hidden" name="remember" value="true"></input>
 
             <div className="rounded-md shadow-sm -space-y-px">
@@ -66,7 +60,7 @@ class Login extends React.Component {
                   type="text"
                   autoComplete="email"
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="h-12 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:border-pink-500 focus:z-10 sm:text-sm"
                   placeholder="Username"
                 ></input>
               </div>
@@ -82,13 +76,13 @@ class Login extends React.Component {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="h-12 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-pink-500 focus:border-pink-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
                 ></input>
               </div>
             </div>
             <div className="flex items-center justify-between">
-              <div className="flex items-center">
+              {/* <div className="flex items-center">
                 <input
                   id="remember_me"
                   name="remember_me"
@@ -98,23 +92,23 @@ class Login extends React.Component {
                 <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-900">
                   Remember me
                 </label>
-              </div>
+              </div> */}
 
-              <div className="text-sm">
+              {/* <div className="text-sm">
                 <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
                   Forgot your password?
                 </a>
-              </div>
+              </div> */}
             </div>
             <div>
               <button
                 onClick={this.onSubmitHandler}
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                   <svg
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                    className="h-5 w-5 text-pink-500 group-hover:text-pink-400"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
