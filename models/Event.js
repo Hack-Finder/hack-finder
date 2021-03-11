@@ -57,6 +57,7 @@ const eventSchema = new Schema({
   participants: [{ type: Schema.ObjectId, ref: 'User' }],
 });
 
+// mapbox
 // eventSchema.pre('save', async function (n) {
 //   if (this.mode === 'Online') return n();
 
