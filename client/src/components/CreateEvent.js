@@ -235,7 +235,7 @@ export default class CreateEvent extends Component {
                               className="w-full h-10 px-2 text-md text-gray-500 placeholder-gray-300 border rounded-lg focus:shadow-outline"
                               name="location"
                               type="text"
-                              placeholder="Location or URL"
+                              placeholder="Where they can find you?"
                             ></input>
                           </div>
 

@@ -39,6 +39,7 @@ export default function EventItem(props) {
             {props.event.mode === 'Offline' ? ' 📌' : ' 🔗'} <span className="font-bold">Where:</span>{' '}
             {props.event.location}
           </p>
+
           <p className="mr-4 mb-1">
             <span className="font-bold">🕖 When:</span> {dateFormater(props.event.deadline)}
           </p>

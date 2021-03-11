@@ -89,7 +89,7 @@ export default class NavBar extends React.Component {
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     style={{ width: '9rem', marginTop: '50px', zIndex: '100' }}
-                    src="logo_startup_calender.png"
+                    src="/logo_startup_calender.png"
                     alt=""
                   />
                 </div>
@@ -142,7 +142,8 @@ export default class NavBar extends React.Component {
                       aria-haspopup="true"
                     >
                       <span className="sr-only">Open user menu</span>
-                      {this.state.user.avatar.imgPath === null ||
+
+                      {/* {this.state.user.avatar.imgPath === null ||
                         (this.state.user.imgPath === undefined && (
                           <img
                             className="h-8 w-8 rounded-full"
@@ -157,7 +158,7 @@ export default class NavBar extends React.Component {
                             src={this.state.user.avatar.imgPath}
                             alt={this.state.user.avatar.imgName}
                           />
-                        ))}
+                        ))} */}
                     </button>
                   </div>
 

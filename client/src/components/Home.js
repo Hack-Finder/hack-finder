@@ -147,7 +147,7 @@ export default class Home extends React.Component {
         </div>
 
         <div className="z-10 max-w-5xl mx-auto mb-6 -mt-6">
-          <div class="relative text-gray-600 focus-within:text-gray-400">
+          <div class="relative text-gray-900 focus-within:text-gray-400">
             <span class="absolute inset-y-0 left-0 flex items-center pl-2">
               <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">
                 <svg
@@ -166,7 +166,7 @@ export default class Home extends React.Component {
             <input
               type="search"
               name="search"
-              class="h-12 w-full py-4 text-sm rounded-full pl-10 border border-gray-600 focus:outline-none"
+              class="h-12 w-full py-4 text-sm text-gray-900 placeholder-gray-700 rounded-full pl-10 border border-gray-900 focus:outline-none"
               placeholder="Search for events"
               autocomplete="off"
               onChange={this.onChangeHandler}
