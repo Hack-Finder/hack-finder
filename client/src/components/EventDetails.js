@@ -2,7 +2,7 @@ import { React, Component } from 'react';
 import { getEventDetails } from '../services/event';
 import { getUserDetails } from '../services/user';
 import { dateFormater } from '../services/helpers';
-
+import Map from '../components/Mapbox';
 export default class EventDetails extends Component {
   state = {
     event: null,
@@ -130,6 +130,14 @@ export default class EventDetails extends Component {
                 <>
                   <p className="text-lg mt-4">Location:</p>
                   <p className="text-gray-600">📌 {this.state.event.location}</p>
+                </>
+              )}
+              {this.state.event.coordinates.length === 2 && (
+                <>
+                  <div className="relative">
+                    <p className="text-lg mt-4">Location:</p>
+                    <Map coordinates={this.state.event.coordinates} />
+                  </div>
                 </>
               )}
               <a

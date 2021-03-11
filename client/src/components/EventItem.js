@@ -33,7 +33,7 @@ export default function EventItem(props) {
       <div>
         <h2 className="font-bold text-2xl mb-4">{props.event.title}</h2>
 
-        <div className="flex flex-row flex-wrap mb-2">
+        <div className="flex flex-col flex-wrap mb-2">
           <p className="mr-4 mb-1">
             {props.event.mode === 'Offline' ? ' 📌' : ' 🔗'} <span className="font-bold">Where:</span>{' '}
             {props.event.location}
