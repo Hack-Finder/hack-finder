@@ -41,7 +41,7 @@ export default class EventDetails extends Component {
         }
 
           <div className="flex flex-col items-center">
-              <a href="#" class="w-1/3 md:min-w-6  px-5 py-3 flex items-center justify-center border border-transparent text-base font-medium rounded-md text-grey-900 bg-pink-500 hover:bg-#ED3897 md:py-4 md:text-lg md:px-10">
+              <a href="#" class="w-1/4 md:min-w-6  px-5 py-3 flex items-center justify-center border border-transparent text-base font-medium rounded-md text-grey-900 bg-pink-500 hover:bg-#ED3897 md:py-4 md:text-lg md:px-10">
               Get your ticket
               </a>
           </div>
