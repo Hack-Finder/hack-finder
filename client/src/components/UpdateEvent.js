@@ -90,8 +90,8 @@ export default class CreateEvent extends Component {
           if (response.message) {
             this.setState({ errMessage: response.message, showError: true });
           } else {
-            // this.props.history.push('/');
           }
+          this.props.history.push('/');
         })
         .catch((err) => {
           console.log(err);

@@ -13,7 +13,7 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'startup-calender',
     allowed_formats: 'jpg, jpeg, png',
-    transformation: [{ width: 350, height: 350, quality: 'auto' }],
+    // transformation: [{ width: 350, height: 350, quality: 'auto' }],
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
