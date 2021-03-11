@@ -42,14 +42,13 @@ export default class NavBar extends React.Component {
 
   render() {
 
-    console.log(this.state.user)
-
     return (
-      <nav className="bg-gray-800">
+      <nav className="bg-black">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between h-16">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
               {/* <!-- Mobile menu button--> */}
+
               <button
                 type="button"
                 className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -73,12 +72,6 @@ export default class NavBar extends React.Component {
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
 
-
-
-                {/* Icon when menu is open. */}
-                {/* Heroicon name: outline/x */}
-                {/* Menu open: "block", Menu closed: "hidden" */}
-
                 <svg
                   className="hidden h-6 w-6"
                   xmlns="http://www.w3.org/2000/svg"
@@ -95,36 +88,7 @@ export default class NavBar extends React.Component {
             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
               {/* Logo */}
               <div className="flex-shrink-0 flex items-center">
-              <Link to="/">
-                <svg className="block h-36 w-36 m-10 pt-14" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="320.397" height="205.568" viewBox="0 0 320.397 205.568">
-                  <defs>
-                    <filter id="Rechteck_17" x="0" y="0" width="315.331" height="142.159" filterUnits="userSpaceOnUse">
-                      <feOffset dy="16" input="SourceAlpha" />
-                      <feGaussianBlur stdDeviation="12" result="blur" />
-                      <feFlood flood-opacity="0.161" />
-                      <feComposite operator="in" in2="blur" />
-                      <feComposite in="SourceGraphic" />
-                    </filter>
-                    <filter id="Rechteck_18" x="2.449" y="66.463" width="317.948" height="139.104" filterUnits="userSpaceOnUse">
-                      <feOffset dy="16" input="SourceAlpha" />
-                      <feGaussianBlur stdDeviation="12" result="blur-2" />
-                      <feFlood flood-opacity="0.235" />
-                      <feComposite operator="in" in2="blur-2" />
-                      <feComposite in="SourceGraphic" />
-                    </filter>
-                  </defs>
-                  <g id="Komponente_6" data-name="Komponente 6" transform="matrix(0.946, 0, 0.057, 0.985, 38.847, 22.147)">
-                    <g transform="matrix(1.06, 0, -0.06, 1.02, -39.74, -22.49)" filter="url(#Rechteck_17)">
-                      <rect id="Rechteck_17-2" data-name="Rechteck 17" width="259" height="68" transform="matrix(0.95, 0, 0.06, 0.98, 39.16, 22.52)" />
-                    </g>
-                    <text id="STARTUP" transform="translate(18.712 43.401)" fill="#fdfdfd" font-size="35" font-family="Helvetica" letter-spacing="-0.003em"><tspan x="0" y="0">STARTUP</tspan></text>
-                    <g transform="matrix(1.06, 0, -0.06, 1.02, -39.74, -22.49)" filter="url(#Rechteck_18)">
-                      <rect id="Rechteck_18-2" data-name="Rechteck 18" width="259" height="64.405" transform="matrix(0.95, 0, 0.06, 0.98, 42.86, 87.12)" fill="#ff00f5" />
-                    </g>
-                    <text id="CALENDAR" transform="translate(61.438 105.858)" fill="#111827" font-size="32" font-family="Helvetica" letter-spacing="-0.003em"><tspan x="0" y="0">CALENDAR</tspan></text>
-                  </g>
-                </svg>
-                </Link>
+
               </div>
 
               {/* Log in/Sign up link group, shown when there is no logged in user */}
@@ -133,12 +97,15 @@ export default class NavBar extends React.Component {
                   <div className="flex space-x-8">
                     <Link
                       to="/signup"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                      className="text-white hover:bg-yellow-300 hover:text-black px-3 py-2 rounded-md text-sm font-bold"
+                    >
                       Sign up
                     </Link>
                     <Link
                       to="/login"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                      className="text-white hover:bg-yellow-300 hover:text-black px-3 py-2 rounded-md text-sm font-bold"
+                    >
+
                       Log in
                     </Link>
                   </div>
@@ -152,7 +119,8 @@ export default class NavBar extends React.Component {
                 {/* Create event  */}
                 <Link
                   to="/start"
-                  className="text-grey-700 bg-yellow-300 hover:bg-pink-400 hover:text-grey-400 m-5 px-4 py-2 text-sm font-medium "
+                  style={{ backgroundColor: '#fcff49' }}
+                  className="hover:bg-pink-400 hover:text-grey-400 m-5 px-4 py-2 text-sm font-bold "
                 >
                   Create event
                 </Link>

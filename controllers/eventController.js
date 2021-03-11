@@ -95,7 +95,7 @@ exports.deleteEvent = (req, res, next) => {
         cloudinary.uploader.destroy(event.publicId, function (err, result) {});
       }
 
-      res.status(200).json({ message: 'Event deleted' });
+      res.status(200).json({ feedback: 'Event deleted' });
     })
     .catch((err) => {
       next(err);
