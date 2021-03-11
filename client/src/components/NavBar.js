@@ -41,11 +41,9 @@ export default class NavBar extends React.Component {
   };
 
   render() {
-
-    console.log(this.state.user)
-    console.log(this.state.user != null && this.state.user.hasOwnProperty('avatar'))
-    console.log(this.state.user === null && 'there is no user')
-
+    console.log(this.state.user);
+    console.log(this.state.user != null && this.state.user.hasOwnProperty('avatar'));
+    console.log(this.state.user === null && 'there is no user');
 
     return (
       <nav className="bg-black">
@@ -95,7 +93,7 @@ export default class NavBar extends React.Component {
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     style={{ width: '9rem', marginTop: '50px', zIndex: '100' }}
-                    src="logo_startup_calender.png"
+                    src="/logo_startup_calender.png"
                     alt=""
                   />
                 </div>
@@ -150,24 +148,23 @@ export default class NavBar extends React.Component {
                       <span className="sr-only">Open user menu</span>
 
                       {(this.state.user.hasOwnProperty('avatar') === false ||
-                        (this.state.user.hasOwnProperty('avatar') === true && this.state.user.avatar.imgPath === undefined))
-                        && (
-                          <img
-                            className="h-8 w-8 rounded-full"
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt=""
-                          />
-                        )}
+                        (this.state.user.hasOwnProperty('avatar') === true &&
+                          this.state.user.avatar.imgPath === undefined)) && (
+                        <img
+                          className="h-8 w-8 rounded-full"
+                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                          alt=""
+                        />
+                      )}
 
-                      {(this.state.user.hasOwnProperty('avatar') === true && this.state.user.avatar.imgPath != undefined)
-                        && (
+                      {this.state.user.hasOwnProperty('avatar') === true &&
+                        this.state.user.avatar.imgPath != undefined && (
                           <img
                             className="h-8 w-8 rounded-full"
                             src={this.state.user.avatar.imgPath}
                             alt={this.state.user.avatar.imgName}
                           />
                         )}
-
                     </button>
                   </div>
 
