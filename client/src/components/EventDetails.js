@@ -74,7 +74,7 @@ export default class EventDetails extends Component {
                 <br />
                 <h3 className="text-lg font-bold space-y-3">Reward Informations</h3>
                 <p>{this.state.event.rewardsDescription}</p>
-                <h3 className="text-lg font-bold mt-12">Event informations</h3>
+                <h3 className="text-lg font-bold mt-8">Event informations</h3>
                 <p className="text-md">{this.state.event.description}</p>
               </div>
             </div>

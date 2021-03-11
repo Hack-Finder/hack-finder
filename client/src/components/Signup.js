@@ -27,7 +27,7 @@ class Signup extends React.Component {
         });
       } else {
         this.props.setUser(user);
-        this.props.history.push('/login');
+        this.props.history.push('/');
       }
     });
   };

@@ -21,14 +21,13 @@ export default function EventItem(props) {
           <h2>Image not available</h2>
         </div>
       ) : (
-        <div className="mr-12">
-          <img
-            className="rounded-lg"
-            src={props.event.banner.imgPath}
-            alt={props.event.banner.imgName}
-            style={{ width: '350px' }}
-          />
-        </div>
+        <div
+          className="mr-12 h-48 flex-none bg-cover rounded-lg text-center overflow-hidden bg-center lg:h-auto lg:w-60"
+          alt={props.event.banner.imgName}
+          style={{
+            backgroundImage: `url(${props.event.banner.imgPath})`,
+          }}
+        ></div>
       )}
 
       <div>
@@ -41,7 +40,7 @@ export default function EventItem(props) {
           </p>
 
           <p className="mr-4 mb-1">
-            <span className="font-bold">🕖 When:</span> {dateFormater(props.event.deadline)}
+            <span className="font-bold">⏰ When:</span> {dateFormater(props.event.deadline)}
           </p>
 
           {rewards.length !== 0 && (
