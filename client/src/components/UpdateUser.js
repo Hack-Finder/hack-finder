@@ -69,7 +69,7 @@ export default class UpdateUser extends Component {
             this.setState({ errMessage: response.message, showError: true });
           } else {
             this.props.setUser(response.user);
-            this.props.history.push('/start');
+            this.props.history.push(`/user/${this.props.user._id}`);
           }
         })
         .catch((err) => {
