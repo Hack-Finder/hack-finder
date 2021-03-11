@@ -134,8 +134,7 @@ export default class EventDetails extends Component {
               )}
               {this.state.event.coordinates.length === 2 && (
                 <>
-                  <div className="relative">
-                    <p className="text-lg mt-4">Location:</p>
+                  <div className="relative mt-4">
                     <Map coordinates={this.state.event.coordinates} />
                   </div>
                 </>

@@ -93,7 +93,7 @@ export default class NavBar extends React.Component {
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     style={{ width: '9rem', marginTop: '50px', zIndex: '100' }}
-                    src="/logo_startup_calender.png"
+                    src="/logo_startup_calendar_2.png"
                     alt=""
                   />
                 </div>
