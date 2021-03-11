@@ -41,6 +41,10 @@ export default class NavBar extends React.Component {
   };
 
   render() {
+    console.log(this.state.user);
+    console.log(this.state.user != null && this.state.user.hasOwnProperty('avatar'));
+    console.log(this.state.user === null && 'there is no user');
+
     return (
       <nav className="bg-black">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -143,22 +147,24 @@ export default class NavBar extends React.Component {
                     >
                       <span className="sr-only">Open user menu</span>
 
-                      {/* {this.state.user.avatar.imgPath === null ||
-                        (this.state.user.imgPath === undefined && (
-                          <img
-                            className="h-8 w-8 rounded-full"
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt=""
-                          />
-                        ))}
-                      {this.state.user.avatar.imgPath != null ||
-                        (this.state.user.avatar.imgPath != undefined && (
+                      {(this.state.user.hasOwnProperty('avatar') === false ||
+                        (this.state.user.hasOwnProperty('avatar') === true &&
+                          this.state.user.avatar.imgPath === undefined)) && (
+                        <img
+                          className="h-8 w-8 rounded-full"
+                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                          alt=""
+                        />
+                      )}
+
+                      {this.state.user.hasOwnProperty('avatar') === true &&
+                        this.state.user.avatar.imgPath != undefined && (
                           <img
                             className="h-8 w-8 rounded-full"
                             src={this.state.user.avatar.imgPath}
                             alt={this.state.user.avatar.imgName}
                           />
-                        ))} */}
+                        )}
                     </button>
                   </div>
 
