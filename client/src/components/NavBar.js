@@ -192,7 +192,7 @@ export default class NavBar extends React.Component {
                           Event
                         </div>
                       </Link> */}
-                      <Link to="/start" onClick={() => this.handleLogout(this.props)}>
+                      <Link to="/" onClick={() => this.handleLogout(this.props)}>
                         <div
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-red-600"
                           role="menuitem"

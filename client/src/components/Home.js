@@ -166,7 +166,7 @@ export default class Home extends React.Component {
             <input
               type="search"
               name="search"
-              class="h-12 w-full py-4 text-sm rounded-full pl-10 border focus:outline-none"
+              class="h-12 w-full py-4 text-sm rounded-full pl-10 border border-gray-400 focus:outline-none"
               placeholder="Search for events"
               autocomplete="off"
               onChange={this.onChangeHandler}
@@ -181,7 +181,7 @@ export default class Home extends React.Component {
               onChange={this.onChangeHandler}
               value={this.state.reward}
               name="reward"
-              className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
+              className="border-gray-900 w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
               placeholder="Regular input"
             >
               <option value="all">Rewards</option>
@@ -189,7 +189,7 @@ export default class Home extends React.Component {
               <option value="priceSpace">Space</option>
               <option value="priceMentorship">Mentorship</option>
             </select>
-            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+            <div class="border-gray-900 absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
               <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
                 <path
                   d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -204,10 +204,10 @@ export default class Home extends React.Component {
               onChange={this.onChangeHandler}
               value={this.state.mode}
               name="mode"
-              className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
+              className="border-gray-900 w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
               placeholder="Regular input"
             >
-              <option value="all">Modus</option>
+              <option value="all">Location</option>
               <option value="Online">Online</option>
               <option value="Offline">Offline</option>
             </select>
@@ -226,7 +226,7 @@ export default class Home extends React.Component {
               onChange={this.onChangeHandler}
               value={this.state.industry}
               name="industry"
-              className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
+              className="border-gray-800 w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
               placeholder="Regular input"
             >
               <option value="all">Industry</option>
