@@ -41,9 +41,6 @@ export default class NavBar extends React.Component {
   };
 
   render() {
-    console.log(this.state.user);
-    console.log(this.state.user != null && this.state.user.hasOwnProperty('avatar'));
-    console.log(this.state.user === null && 'there is no user');
 
     return (
       <nav className="bg-black">
