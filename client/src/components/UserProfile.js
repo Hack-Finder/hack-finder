@@ -50,30 +50,30 @@ export default class UserProfile extends Component {
                 <div class="text-xs mb-2 mr-2 py-1.5 px-4 text-gray-600 bg-yellow-200 rounded-2xl">
                   #tech
                 </div>
-                <div class="text-xs mb-2 mr-2 py-1.5 px-4 text-gray-600 bg-yellow-200 rounded-2xl">
-                  #food
+            <div class="text-xs mb-2 mr-2 py-1.5 px-4 text-gray-600 bg-yellow-200 rounded-2xl">
+              #food
                 </div>
-            </div>
+          </div>
 
-            <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">
-                          About me
+          <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500">
+              About me
                         </dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-                        <p>{this.props.user.description}</p>
-                          <br/>
-                          <span className="font-bold">www.thesmile.com</span> 
-                        </dd>
-            </div>
-          
-        
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
+              <p>{this.props.user.description}</p>
+              <br />
+              <span className="font-bold">www.thesmile.com</span>
+            </dd>
+          </div>
 
-                        <div className="flex-auto justify-center flex-col px-4 py-5 sm:px-6 ">
-                                    <dt className="text-sm font-medium text-gray-500">
-                                          {this.props.user.username}'s events
+
+
+          <div className="flex-auto justify-center flex-col px-4 py-5 sm:px-6 ">
+            <dt className="text-sm font-medium text-gray-500">
+              {this.props.user.username}'s events
                                     </dt>
-                        </div>
-          
+          </div>
+
         </div>
         <div>
           <h2>Your events</h2>

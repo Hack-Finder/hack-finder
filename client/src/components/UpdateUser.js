@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { sendFormData } from '../services/sendFormData';
 import { Link } from 'react-router-dom';
+import { deleteUser } from '../services/user';
 
 export default class UpdateUser extends Component {
   state = {
@@ -19,6 +20,20 @@ export default class UpdateUser extends Component {
 
   showErrorHandler = (ev) => {
     this.setState({ errMessage: '', showError: false });
+  };
+
+  deleteUserHandler = async () => {
+    try {
+      const response = await deleteUser(this.props.user._id);
+      if (response.message) {
+        this.setState({ errMessage: response.message, showError: true });
+      } else {
+        this.props.setUser(response.user);
+        this.props.history.push('/');
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   onChangeHandler = (ev) => {
@@ -85,7 +100,7 @@ export default class UpdateUser extends Component {
               <h2 class="profile-username text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                 Edit Profile
               </h2>
-              {this.state.showAvatar && (
+              {!this.state.avatar.imgPath && (
                 <span class="mb-6 mt-8 inline-block h-28 w-28 rounded-full overflow-hidden bg-gray-100">
                   <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"></path>
@@ -93,7 +108,7 @@ export default class UpdateUser extends Component {
                 </span>
               )}
 
-              {!this.state.showAvatar && (
+              {!this.state.showAvatar && this.state.avatar.imgPath && (
                 <span class="mb-6 mt-8 inline-block h-28 w-28 rounded-full overflow-hidden bg-gray-100">
                   <img class="h-full w-full rounded-full" src={this.state.avatar.imgPath} alt=""></img>
                 </span>
@@ -143,6 +158,21 @@ export default class UpdateUser extends Component {
                   cols="30"
                   rows="10"
                 ></textarea>
+
+                <div class="mt-3 text-center sm:text-left">
+                  <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                    Deactivate account
+                  </h3>
+                  <div class="mt-2">
+                    <button
+                      onClick={this.deleteUserHandler}
+                      type="button"
+                      class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm"
+                    >
+                      Deactivate
+                    </button>
+                  </div>
+                </div>
               </div>
               <div className="py-5">
                 <div className="border-t border-gray-200">
