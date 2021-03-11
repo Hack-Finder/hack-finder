@@ -41,7 +41,6 @@ export default class NavBar extends React.Component {
   };
 
   render() {
-
     return (
       <nav className="bg-black">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -86,10 +85,16 @@ export default class NavBar extends React.Component {
             </div>
 
             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
-              {/* Logo */}
-              <div className="flex-shrink-0 flex items-center">
-
-              </div>
+              <Link to="/">
+                <div className="flex-shrink-0 flex items-center">
+                  <img
+                    style={{ width: '9rem', marginTop: '50px', zIndex: '100' }}
+                    src="logo_startup_calender.png"
+                    alt=""
+                  />
+                </div>
+              </Link>
+              <div className="flex-shrink-0 flex items-center"></div>
 
               {/* Log in/Sign up link group, shown when there is no logged in user */}
               {this.state.user === null && (
@@ -105,7 +110,6 @@ export default class NavBar extends React.Component {
                       to="/login"
                       className="text-white hover:bg-yellow-300 hover:text-black px-3 py-2 rounded-md text-sm font-bold"
                     >
-
                       Log in
                     </Link>
                   </div>
@@ -138,19 +142,22 @@ export default class NavBar extends React.Component {
                       aria-haspopup="true"
                     >
                       <span className="sr-only">Open user menu</span>
-                      {this.state.user.avatar.imgPath === null || this.state.user.imgPath === undefined &&
-                        <img
-                          className="h-8 w-8 rounded-full"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                          alt=""
-                        />
-                      }
-                      {this.state.user.avatar.imgPath != null || this.state.user.avatar.imgPath != undefined &&
-                        <img className="h-8 w-8 rounded-full"
-                          src={this.state.user.avatar.imgPath}
-                          alt={this.state.user.avatar.imgName}
-                        />
-                      }
+                      {this.state.user.avatar.imgPath === null ||
+                        (this.state.user.imgPath === undefined && (
+                          <img
+                            className="h-8 w-8 rounded-full"
+                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                            alt=""
+                          />
+                        ))}
+                      {this.state.user.avatar.imgPath != null ||
+                        (this.state.user.avatar.imgPath != undefined && (
+                          <img
+                            className="h-8 w-8 rounded-full"
+                            src={this.state.user.avatar.imgPath}
+                            alt={this.state.user.avatar.imgName}
+                          />
+                        ))}
                     </button>
                   </div>
 
