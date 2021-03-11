@@ -164,7 +164,7 @@ export default class Home extends React.Component {
               </button>
             </span>
             <input
-              type="search"
+              type="text"
               name="search"
               class="h-12 w-full py-4 text-md text-gray-900 placeholder-gray-700 rounded-full pl-10 border border-gray-900 focus:outline-none"
               placeholder="Search for events"

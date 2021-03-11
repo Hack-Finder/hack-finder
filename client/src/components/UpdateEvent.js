@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { sendFormData } from '../services/sendFormData';
 import axios from 'axios';
 import { deleteEvent } from '../services/event';
+import { Link } from 'react-router-dom';
 export default class CreateEvent extends Component {
   state = {
     title: '',
@@ -91,7 +92,7 @@ export default class CreateEvent extends Component {
             this.setState({ errMessage: response.message, showError: true });
           } else {
           }
-          this.props.history.push('/');
+          this.props.history.push('/profile');
         })
         .catch((err) => {
           console.log(err);
@@ -628,11 +629,11 @@ export default class CreateEvent extends Component {
                         <div className="mx-auto">
                           <div className="flex">
                             <div className="w-1/2">
-                              <a href="/">
+                              <Link to="/profile">
                                 <div className="btn-prev w-32 focus:outline-none px-5 py-3 rounded-lg text-base font-medium text-center text-gray-600 bg-white hover:bg-gray-100 border">
                                   Cancel
                                 </div>
-                              </a>
+                              </Link>
                             </div>
 
                             <div className="w-1/2 text-right mb-6">
