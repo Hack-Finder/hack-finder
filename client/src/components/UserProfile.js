@@ -24,8 +24,6 @@ export default class UserProfile extends Component {
   };
 
   render() {
-    console.log(this.props.user);
-
     if (this.state.users === null) return <h3>Loading...</h3>;
 
     return (
@@ -79,30 +77,32 @@ export default class UserProfile extends Component {
               this.state.events.map((event) => {
                 return (
                   <>
-                    <div className="flex relative">
-                      <Link to={`/event/edit/${event._id}`}>
-                        <div
-                          className="flex cursor-pointer absolute text-md bg-yellow-200 p-4 rounded-lg delete-btn font-medium"
-                          style={{ right: '10px', top: '25px' }}
-                        >
-                          <svg
-                            className="h-4 w-4 self-center mr-1"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
+                    {event.creator === this.props.user._id && (
+                      <div className="flex relative">
+                        <Link to={`/event/edit/${event._id}`}>
+                          <div
+                            className="flex cursor-pointer absolute text-md bg-yellow-200 p-4 rounded-lg delete-btn font-medium"
+                            style={{ right: '10px', top: '25px' }}
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                            />
-                          </svg>
-                          <span>Edit</span>
-                        </div>
-                      </Link>
-                    </div>
+                            <svg
+                              className="h-4 w-4 self-center mr-1"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                              />
+                            </svg>
+                            <span>Edit</span>
+                          </div>
+                        </Link>
+                      </div>
+                    )}
                     <EventItem event={event} />
                   </>
                 );

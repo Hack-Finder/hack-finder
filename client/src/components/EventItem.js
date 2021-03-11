@@ -36,11 +36,11 @@ export default function EventItem(props) {
 
         <div className="flex flex-row flex-wrap mb-2">
           <p className="mr-4 mb-1">
-            {props.event.mode === 'Offline' ? ' 📌' : ' 🔗'} <span className="font-bold">Where?</span>{' '}
+            {props.event.mode === 'Offline' ? ' 📌' : ' 🔗'} <span className="font-bold">Where:</span>{' '}
             {props.event.location}
           </p>
           <p className="mr-4 mb-1">
-            <span className="font-bold">🕖 When?</span> {dateFormater(props.event.deadline)}
+            <span className="font-bold">🕖 When:</span> {dateFormater(props.event.deadline)}
           </p>
 
           {rewards.length !== 0 && (

@@ -67,7 +67,7 @@ export default class Home extends React.Component {
       // Search Filter
       if (state.search !== '') {
         filtered = state.eventsCopy.filter((event) => {
-          return event.title.includes(state.search);
+          return event.title.toLowerCase().includes(state.search.toLowerCase());
         });
       }
 
@@ -106,7 +106,47 @@ export default class Home extends React.Component {
   render() {
     return (
       <>
-        <div className="max-w-5xl mx-auto mb-6 mt-6">
+        <div className="z-0 relative bg-white overflow-hidden">
+          <div className="max-w-6xl mx-auto">
+            <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+              <svg
+                className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
+                fill="currentColor"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <polygon points="50,0 100,0 50,100 0,100" />
+              </svg>
+              <div className="relative pt-6 px-4 sm:px-6 lg:px-8"></div>
+
+              <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                <div className="sm:text-center lg:text-left">
+                  <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                    <span className="block xl:inline">Find your </span>
+                    <span style={{ color: '#ed3897' }} className="block xl:inline">
+                      Start up event <span style={{ color: 'black' }}>.</span>
+                    </span>
+                  </h1>
+                  <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                    Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt
+                    amet fugiat veniam occaecat fugiat aliqua.
+                  </p>
+                  <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start"></div>
+                </div>
+              </main>
+            </div>
+          </div>
+          <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <img
+              className="h-56 wimage-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div className="z-10 max-w-5xl mx-auto mb-6 -mt-6">
           <div class="relative text-gray-600 focus-within:text-gray-400">
             <span class="absolute inset-y-0 left-0 flex items-center pl-2">
               <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">

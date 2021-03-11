@@ -100,7 +100,7 @@ eventSchema.pre('save', async function (n) {
     this.banner = {
       imgName: 'Banner Event Calender',
       imgPath:
-        'https://res.cloudinary.com/dvofkuyja/image/upload/v1615294286/startup-calender/kyny1fyzqmpmorcjntij.png',
+        'https://res.cloudinary.com/dvofkuyja/image/upload/v1615450629/startup-calender/default_banner_kpeh3y.jpg',
       publicId: null,
     };
   }

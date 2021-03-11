@@ -183,7 +183,7 @@ export default class CreateEvent extends Component {
                   <div className="mt-5 md:mt-0 md:col-span-2">
                     <div className="overflow-hidden sm:rounded-md border border-gray-200">
                       <div className="px-4 py-5 bg-white sm:p-6">
-                        <div className="grid grid-cols-6 gap-6">
+                        <div className="grid grid-cols-12 gap-6">
                           <div className="col-span-12 sm:col-span-12">
                             <label htmlFor="title" className="mb-2 block text-md font-medium text-gray-700">
                               Title
@@ -193,7 +193,7 @@ export default class CreateEvent extends Component {
                               className="w-full h-10 px-2 text-md text-gray-500 placeholder-gray-300 border rounded-lg focus:shadow-outline"
                               name="title"
                               type="text"
-                              placeholder="Title"
+                              placeholder="Title of your event"
                               value={this.state.title}
                               required="required"
                             ></input>
@@ -206,8 +206,9 @@ export default class CreateEvent extends Component {
                             <textarea
                               onChange={this.onChangeHandler}
                               value={this.state.description}
-                              className="w-full h-32 px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+                              className="w-full h-32 px-3 py-2 text-base text-gray-700 placeholder-gray-300 border rounded-lg focus:shadow-outline"
                               name="description"
+                              placeholder="Describe your event"
                               id=""
                               cols="30"
                               rows="10"
@@ -215,23 +216,7 @@ export default class CreateEvent extends Component {
                             ></textarea>
                           </div>
 
-                          <div className="col-span-6 sm:col-span-6">
-                            <label htmlFor="location" className="mb-2 block text-md font-medium text-gray-700">
-                              Location
-                            </label>
-
-                            <input
-                              onChange={this.onChangeHandler}
-                              value={this.state.location}
-                              className="w-full h-10 px-2 text-md text-gray-500 placeholder-gray-300 border rounded-lg focus:shadow-outline"
-                              name="location"
-                              type="text"
-                              placeholder="Location or URL"
-                              required
-                            ></input>
-                          </div>
-
-                          <div className="col-span-6 sm:col-span-6">
+                          <div className="col-span-4 sm:col-span-4">
                             <label htmlFor="mode" className="mb-2 block text-md font-medium text-gray-700">
                               Modus
                             </label>
@@ -258,6 +243,68 @@ export default class CreateEvent extends Component {
                               </div>
                             </div>
                           </div>
+
+                          <div className="col-span-8 sm:col-span-8">
+                            <label htmlFor="mode" className="mb-2 block text-md font-medium text-gray-700">
+                              Industry
+                            </label>
+
+                            <div className="relative inline-block w-full text-gray-700">
+                              <select
+                                onChange={this.onChangeHandler}
+                                value={this.state.industry}
+                                name="industry"
+                                className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
+                                placeholder="Regular input"
+                              >
+                                <option>Tech</option>
+                                <option>Food</option>
+                              </select>
+                              <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                  <path
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clipule="evenodd"
+                                    fillRule="evenodd"
+                                  ></path>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-span-12 sm:col-span-12">
+                            <label htmlFor="homepage" className="mb-2 block text-md font-medium text-gray-700">
+                              Homepage
+                            </label>
+                            <div className="h-10 mb-4 mt-1 flex rounded-md">
+                              <span className="w-24 inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                Homepage
+                              </span>
+                              <input
+                                type="url"
+                                onChange={this.onChangeHandler}
+                                value={this.state.homepage}
+                                name="homepage"
+                                id="company_website"
+                                className="placeholder-gray-300 px-2 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                placeholder="Your homepage"
+                              />
+                            </div>
+                          </div>
+                          <div className="col-span-12 sm:col-span-12">
+                            <label htmlFor="location" className="mb-2 block text-md font-medium text-gray-700">
+                              Location
+                            </label>
+
+                            <input
+                              onChange={this.onChangeHandler}
+                              value={this.state.location}
+                              className="w-full h-10 px-2 text-md text-gray-500 placeholder-gray-300 border rounded-lg focus:shadow-outline"
+                              name="location"
+                              type="text"
+                              placeholder="Location or URL"
+                            ></input>
+                          </div>
+
                           <div className="col-span-12 sm:col-span-12">
                             {this.state.showBannerImage && (
                               <>
@@ -379,8 +426,9 @@ export default class CreateEvent extends Component {
                             <textarea
                               onChange={this.onChangeHandler}
                               value={this.state.rewardsDescription}
-                              className="w-full h-32 px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+                              className="w-full h-32 px-3 py-2 text-base text-gray-700 placeholder-gray-300 border rounded-lg focus:shadow-outline"
                               name="rewardsDescription"
+                              placeholder="Describe your rewards"
                               id=""
                               cols="30"
                               rows="10"
@@ -500,34 +548,6 @@ export default class CreateEvent extends Component {
                     <div className="overflow-hidden sm:rounded-md border border-gray-200">
                       <div className="px-4 py-5 bg-white sm:p-6">
                         <div className="grid grid-cols-6 gap-6">
-                          <div className="col-span-6 sm:col-span-12">
-                            <label htmlFor="mode" className="mb-2 block text-md font-medium text-gray-700">
-                              Industry
-                            </label>
-
-                            <div className="relative inline-block w-full text-gray-700">
-                              <select
-                                onChange={this.onChangeHandler}
-                                value={this.state.industry}
-                                name="industry"
-                                className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
-                                placeholder="Regular input"
-                              >
-                                <option>Tech</option>
-                                <option>Food</option>
-                              </select>
-                              <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                                <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                  <path
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clipule="evenodd"
-                                    fillRule="evenodd"
-                                  ></path>
-                                </svg>
-                              </div>
-                            </div>
-                          </div>
-
                           <div className="col-span-12 sm:col-span-12">
                             <div>
                               <label htmlFor="facebook" className="mb-2 block text-md font-medium text-gray-700">
@@ -541,15 +561,18 @@ export default class CreateEvent extends Component {
                                   onChange={this.onChangeHandler}
                                   value={this.state.facebook}
                                   name="facebook"
-                                  type="text"
+                                  type="url"
                                   id="company_website"
-                                  className="px-2 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                  className="placeholder-gray-300 px-2 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                                   placeholder="www.facebook.com"
                                 />
                               </div>
                             </div>
                             <div>
-                              <label htmlFor="instagram" className="mb-2 block text-md font-medium text-gray-700">
+                              <label
+                                htmlFor="instagram"
+                                className="mb-2 block text-md font-medium placeholder-gray-300 text-gray-700"
+                              >
                                 Instagram
                               </label>
                               <div className="h-10 mb-4 mt-1 flex rounded-md">
@@ -558,11 +581,11 @@ export default class CreateEvent extends Component {
                                 </span>
                                 <input
                                   onChange={this.onChangeHandler}
-                                  type="text"
+                                  type="url"
                                   value={this.state.instagram}
                                   name="instagram"
                                   id="company_website"
-                                  className="px-2 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                  className="placeholder-gray-300 px-2 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                                   placeholder="www.instagram.com"
                                 />
                               </div>
@@ -579,34 +602,16 @@ export default class CreateEvent extends Component {
 
                                 <input
                                   onChange={this.onChangeHandler}
-                                  type="text"
+                                  type="url"
                                   value={this.state.twitter}
                                   name="twitter"
                                   id="company_website"
-                                  className="px-2 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                  className="placeholder-gray-300 px-2 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                                   placeholder="www.twitter.com"
                                 />
                               </div>
                             </div>
-                            <div>
-                              <label htmlFor="homepage" className="mb-2 block text-md font-medium text-gray-700">
-                                Homepage
-                              </label>
-                              <div className="h-10 mb-4 mt-1 flex rounded-md">
-                                <span className="w-24 inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                                  Homepage
-                                </span>
-                                <input
-                                  type="text"
-                                  onChange={this.onChangeHandler}
-                                  value={this.state.homepage}
-                                  name="homepage"
-                                  id="company_website"
-                                  className="px-2 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                                  placeholder="www.homepage.com"
-                                />
-                              </div>
-                            </div>
+                            <div></div>
                           </div>
                         </div>
                       </div>
