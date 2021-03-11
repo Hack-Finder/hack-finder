@@ -166,7 +166,7 @@ export default class Home extends React.Component {
             <input
               type="search"
               name="search"
-              class="h-12 w-full py-4 text-sm rounded-full pl-10 border border-gray-400 focus:outline-none"
+              class="h-12 w-full py-4 text-sm rounded-full pl-10 border border-gray-600 focus:outline-none"
               placeholder="Search for events"
               autocomplete="off"
               onChange={this.onChangeHandler}
@@ -181,7 +181,7 @@ export default class Home extends React.Component {
               onChange={this.onChangeHandler}
               value={this.state.reward}
               name="reward"
-              className="border-gray-900 w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline"
+              className="border-gray-900 w-full h-10 pl-3 pr-6 text-base placeholder-gray-900 border rounded-lg appearance-none focus:shadow-outline"
               placeholder="Regular input"
             >
               <option value="all">Rewards</option>
