@@ -147,18 +147,15 @@ export default class CreateEvent extends Component {
         <form onSubmit={this.onSubmitHandler} action="#" method="POST">
           <div className="bg-gray-100 pt-12">
             {/* Start Container */}
-            <div className="max-w-6xl mx-auto px-4 gap-4">
-              <div class="">
-                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
-                  Delete event
-                </h3>
+            <div className="max-w-6xl flex mx-auto justify-end px-4 gap-4">
+              <div>
                 <div class="mt-2">
                   <button
                     onClick={this.deleteEventHandler}
                     type="button"
                     class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm"
                   >
-                    Delete
+                    Delete Event
                   </button>
                 </div>
               </div>

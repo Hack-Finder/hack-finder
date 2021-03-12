@@ -43,16 +43,16 @@ export default class EventDetails extends Component {
                     <p className="font-bold"> ⏰ Deadline: &nbsp; </p>
                     <p> {dateFormater(this.state.event.deadline)}</p>
                   </div>
-                  {this.state.event.deadline && (
+                  {this.state.event.deadlineB && (
                     <div className="flex">
                       <p className="font-bold"> ⏰ Additional Deadline: &nbsp; </p>
-                      <p> {dateFormater(this.state.event.deadline)}</p>
+                      <p> {dateFormater(this.state.event.deadlineB)}</p>
                     </div>
                   )}
                   ​
                 </div>
                 ​​
-                <div className="grid grid-cols-12">
+                <div className="grid grid-cols-12 gap-12">
                   <div className="col-span-8">
                     <h3 className="text-lg font-bold space-y-3">Deadline informations</h3>
                     <p className="text-md space-y-3">{this.state.event.deadlineDescription}</p>
